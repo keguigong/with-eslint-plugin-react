@@ -1,37 +1,33 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import PropTypes from 'prop-types'
+import { jsx, ThemeProvider, Styled } from 'theme-ui'
+import theme from '../styles/theme'
+import { Box, Heading, Flex, Button } from '@theme-ui/components'
+
+import ColorToggleButton from '../components/color-mode-toggle'
 
 const Font = props => (
-  <div>
-    <h1 onClick={props.handleClick}>桃树，杏树，梨树，Hello World! <span>How are you!</span></h1>
-    <p>The static directory has been deprecated in favor of the public directory. https://err.sh/zeit/next.js/static-dir-deprecated</p>
-    <p>桃树，杏树，梨树，你不让我，我不让你，都开满了花赶趟儿。红的像火，粉的像霞，白的像雪。花里带着甜味；闭了眼，树上仿佛已经满是桃儿，杏儿，梨儿。花下成千成百的蜜蜂嗡嗡的闹着，大小的蝴蝶飞来飞去。野花遍地是：杂样儿，有名字的，没名字的，散在草丛里像眼睛像星星，还眨呀眨。</p>
-    <p>设置字体的时候，先英后中，保证中英字体兼容到。font-family: Arial, &quot;Microsoft YaHei&quot;</p>
-    <p>{props.content}</p>
-    <ul>
-      {props.arr.map(item => (
-        <li key={item}>{item}</li>
-      ))}
-    </ul>
-  </div>
+  <ThemeProvider theme={theme}>
+    <Box sx={{
+      m: '-8px',
+      p: '30px',
+      bg: 'background',
+      minHeight: '100vh'
+    }}>
+      <Box p={4} bg='highlight'>
+        <Flex sx={{ alignItems: 'cester' }}>
+          <Heading>Components</Heading>
+          <Button ml='auto'>Beep</Button>
+        </Flex>
+      </Box>
+      <ColorToggleButton></ColorToggleButton>
+      <Styled.h1>故都的秋</Styled.h1>
+      <Styled.p>秋天，无论在什么地方的秋天，总是好的；可是啊，北国的秋，却特别地来得清，来得静，来得悲凉。我的不远千里，要从杭州赶上青岛，更要从青岛赶上北平来的理由，也不过想饱尝一尝这“秋”，这故都的秋味</Styled.p>
+      <Styled.p>Autumn, wherever it is, always has something to recommend itself. In North China, however, it is particularly limpid, serene and melancholy. To enjoy its atmosphere to the full in the onetime capital, I have, therefore, made light of travelling a long distance from Hangzhou to Qingdao, and thence to Peiping.</Styled.p>
+      <Styled.p>江南，秋当然也是有的，但草木凋得慢，空气来得润，天的颜色显得淡，并且又时常多雨而少风；一个人夹在苏州上海杭州，或厦门香港广州的市民中间，混混沌沌地过去，只能感到一点点清凉，秋的味，秋的色，秋的意境与姿态，总看不饱，尝不透，赏玩不到十足。秋并不是名花，也并不是美酒，那一种半开、半醉的状态，在领略秋的过程上，是不合适的。</Styled.p>
+      <Styled.p sx={{ variant: 'text.blueskystandard' }}>There is of course autumn in the South too, but over there plants wither slowly, the air is moist, the sky pallid, and it is more often rainy than windy. While muddling along all by myself among the urban dwellers of Suzhou, Shanghai, Xianmen, Hong Kong or Guangzhou, I feel nothing but a little chill in the air, without ever relishing to my heart's content the flavour, colour, mood and style of the season. Unlike famous flowers which are most attractive when half opening, good wine which is most tempting when one is half drunk, autumn, however, is best appreciated in its entirety.</Styled.p>
+      <Styled.p sx={{ variant: 'text.blueskycondensed' }}>There is of course autumn in the South too, but over there plants wither slowly, the air is moist, the sky pallid, and it is more often rainy than windy. While muddling along all by myself among the urban dwellers of Suzhou, Shanghai, Xianmen, Hong Kong or Guangzhou, I feel nothing but a little chill in the air, without ever relishing to my heart's content the flavour, colour, mood and style of the season. Unlike famous flowers which are most attractive when half opening, good wine which is most tempting when one is half drunk, autumn, however, is best appreciated in its entirety.</Styled.p>
+    </Box>
+  </ThemeProvider>
 )
 
-Font.defaultProps = {
-  content: 'default content',
-  arr: [1, 2, 3],
-  handleClick: f => f
-}
-
-Font.propTypes = {
-  content: PropTypes.string,
-  arr: PropTypes.array,
-  handleClick: PropTypes.func
-}
-
-const App = () => (
-  <div>
-    <Font content='asdasdasd' arr={[2, 3, 4]} />
-  </div>
-)
-export default App
+export default Font
