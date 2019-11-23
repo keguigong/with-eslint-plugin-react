@@ -1,88 +1,29 @@
-import React from 'react'
-import Head from 'next/head'
-import Nav from '../components/nav'
+/** @jsx jsx */
+import { jsx, Styled } from 'theme-ui'
+import { Box, Heading, Flex } from '@theme-ui/components'
 
-const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+import ThemeProviderWrapper from '../components/theme-provider-wrapper'
+import ColorToggleButton from '../components/color-mode-toggle'
 
-    <Nav />
-
-    <div className="hero">
-      <h1 className="title">Welcome to Next.js!</h1>
-      <p className="description">
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
-
-      <div className="row">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
-        </a>
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Next.js Learn &rarr;</h3>
-          <p>Learn about Next.js by following an interactive tutorial!</p>
-        </a>
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Find other example boilerplates on the Next.js GitHub.</p>
-        </a>
-      </div>
-    </div>
-
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
+export default () => (
+  <ThemeProviderWrapper>
+    <Box sx={{
+      m: '-8px',
+      p: '30px',
+      bg: 'background',
+      minHeight: '100vh'
+    }}>
+      <Box p={4} bg='highlight'>
+        <Flex sx={{ alignItems: 'cester' }}>
+          <Heading>Components</Heading>
+          <ColorToggleButton ml='auto'/>
+        </Flex>
+      </Box>
+      <Styled.h1>故都的秋</Styled.h1>
+      <Styled.h2>秋天，无论在什么地方的秋天，总是好的</Styled.h2>
+      <Styled.p>秋天，无论在什么地方的秋天，总是好的；可是啊，北国的秋，却特别地来得清，来得静，来得悲凉。我的不远千里，要从杭州赶上青岛，更要从青岛赶上北平来的理由，也不过想饱尝一尝这“秋”，这故都的秋味</Styled.p>
+      <Styled.p>Autumn, wherever it is, always has something to recommend itself. In North China, however, it is particularly limpid, serene and melancholy. To enjoy its atmosphere to the full in the onetime capital, I have, therefore, made light of travelling a long distance from Hangzhou to Qingdao, and thence to Peiping.</Styled.p>
+      <Styled.p>江南，秋当然也是有的，但草<Styled.code>const somevar = 12;</Styled.code>木凋得慢，空气来得润，天的颜色显得淡，并且又时常多雨而少风；一个人夹在苏州上海杭州，或厦门香港广州的市民中间，混混沌沌地过去，只能感到一点点清凉，秋的味，秋的色，秋的意境与姿态，总看不饱，尝不透，赏玩不到十足。秋并不是名花，也并不是美酒，那一种半开、半醉的状态，在领略秋的过程上，是不合适的。</Styled.p>
+      <Styled.p sx={{ variant: 'text.bluesky' }}>There is of course autumn in the South too, but over there plants wither slowly, the air is moist, the sky pallid, and it is more often rainy than windy. While muddling along all by myself among the urban dwellers of Suzhou, Shanghai, Xianmen, Hong Kong or Guangzhou, I feel nothing but a little chill in the air, without ever relishing to my heart&apos;s content the flavour, colour, mood and style of the season. Unlike famous flowers which are most attractive when half opening, good wine which is most tempting when one is half drunk, autumn, however, is best appreciated in its entirety.</Styled.p>    </Box>
+  </ThemeProviderWrapper>
 )
-
-export default Home

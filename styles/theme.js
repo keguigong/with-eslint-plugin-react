@@ -1,3 +1,9 @@
+const heading = {
+  fontFamily: 'heading',
+  lineHeight: 'heading',
+  fontWeight: 'heading',
+}
+
 export default {
   colors: {
     text: '#000',
@@ -16,7 +22,6 @@ export default {
         primary: '#69FFF0',
         secondary: '#34B9AC',
         muted: '#111',
-        accent: '#9BA5A4',
         highlight: '#484C4B'
       },
       pink: {
@@ -24,18 +29,12 @@ export default {
         background: '#FFF0F0',
         highlight: '#F4C5C5',
       },
-      purple: {
-        primary: '#574BFF',
-        background: '#EDEBFF',
-        highlight: '#ABA7E5'
-      }
     }
   },
   fonts: {
     body: '-apple-system, BlinkMacSystemFont, "Pingfang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-    heading: 'Blue Sky Standard, -apple-system, BlinkMacSystemFont,"Pingfang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-    monospace: 'Menlo, monospace',
-    blueskycondensed: 'Blue Sky Condensed, -apple-system, BlinkMacSystemFont,"Pingfang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+    heading: 'Blue Sky Standard, -apple-system, BlinkMacSystemFont, "Pingfang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+    monospace: 'SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace',
   },
   fontWeights: {
     body: 400,
@@ -49,6 +48,9 @@ export default {
   fontSizes: [
     12, 14, 16, 20, 24, 32, 48, 64
   ],
+  space: [
+    0, 4, 8, 16, 32, 64, 128, 256, 512
+  ],
   // example custom breakpoints
   breakpoints: [
     '40em', '56em', '64em',
@@ -61,19 +63,57 @@ export default {
       lineHeight: 'body',
     },
     h1: {
-      fontFamily: 'heading',
-      fontWeight: 'heading',
-      lineHeight: 'heading',
-      fontSize: [4, 5, 6],
+      ...heading,
+      fontSize: [4, 5 ,6],
       color: 'primary'
     },
     h2: {
-      variant: 'text.heading',
+      ...heading,
       fontSize: [3, 4],
     },
+    h3: {
+      ...heading,
+      fontSize: 3,
+    },
+    h4: {
+      ...heading,
+      fontSize: 2,
+    },
+    h5: {
+      ...heading,
+      fontSize: 1,
+    },
+    h6: {
+      ...heading,
+      fontSize: 0,
+    },
     p: {
-      fontSize: [1, 2],
-      color: 'text'
+      color: 'text',
+      fontSize: [0, 1, 2]
+    },
+    pre: {
+      fontFamily: 'monospace',
+      overflowX: 'auto',
+      code: {
+        color: 'inherit',
+      },
+    },
+    code: {
+      fontFamily: 'monospace',
+      fontSize: 'inherit',
+    },
+    table: {
+      width: '100%',
+      borderCollapse: 'separate',
+      borderSpacing: 0,
+    },
+    th: {
+      textAlign: 'left',
+      borderBottomStyle: 'solid',
+    },
+    td: {
+      textAlign: 'left',
+      borderBottomStyle: 'solid',
     },
   },
   // variants can use custom, user-defined names
@@ -94,11 +134,8 @@ export default {
       textTransform: 'uppercase',
       letterSpacing: 'caps',
     },
-    blueskystandard: {
+    bluesky: {
       fontFamily: 'heading'
-    },
-    blueskycondensed: {
-      fontFamily: 'blueskycondensed'
     }
   },
 }
