@@ -1091,6 +1091,14 @@
     "@styled-system/core" "^5.1.2"
     "@styled-system/css" "^5.0.23"
 
+"@theme-ui/color@^0.2.49":
+  version "0.2.49"
+  resolved "https://registry.yarnpkg.com/@theme-ui/color/-/color-0.2.49.tgz#599276ca0dcf94c00c4f35a7b38b6833b3b35bfe"
+  integrity sha512-vUs1SnIzhDjYDyXzidtE62gKELylSw79fSYeNM//DQrNngupTZFWlyAga+MdcS9UYjWJ9Z/ueR0mfy6qlWdlpQ==
+  dependencies:
+    "@styled-system/css" "^5.0.23"
+    polished "^3.4.1"
+
 "@theme-ui/components@^0.2.49":
   version "0.2.49"
   resolved "https://registry.yarnpkg.com/@theme-ui/components/-/components-0.2.49.tgz#3c7e02ec96aac790d1d9408cd3f1591cef3168c6"
@@ -3103,6 +3111,14 @@ file-loader@^2.0.0:
     loader-utils "^1.0.2"
     schema-utils "^1.0.0"
 
+file-loader@^4.0.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-4.3.0.tgz#780f040f729b3d18019f20605f723e844b8a58af"
+  integrity sha512-aKrYPYjF1yG3oX0kWRrqrSMfgftm7oJW5M+m4owoldH5C51C0RkIwB++JbRvEW3IU6/ZG5n8UvEcdgwOt2UOWA==
+  dependencies:
+    loader-utils "^1.2.3"
+    schema-utils "^2.5.0"
+
 fill-range@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/fill-range/-/fill-range-4.0.0.tgz#d544811d428f98eb06a63dc402d2403c328c38f7"
@@ -4393,7 +4409,7 @@ mime@1.6.0:
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
   integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
 
-mime@^2.0.3, mime@^2.4.2:
+mime@^2.0.3, mime@^2.4.2, mime@^2.4.4:
   version "2.4.4"
   resolved "https://registry.yarnpkg.com/mime/-/mime-2.4.4.tgz#bd7b91135fc6b01cde3e9bae33d659b63d8857e5"
   integrity sha512-LRxmNwziLPT828z+4YkNzloCFC2YM4wrB99k+AV5ZbEyfGNWfG8SO1FUXLmLDBSo89NrJZ4DIWeLjy1CHGhMGA==
@@ -4585,6 +4601,14 @@ next-fonts@^0.19.0:
   dependencies:
     file-loader "^2.0.0"
     url-loader "^1.1.1"
+
+next-images@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/next-images/-/next-images-1.2.0.tgz#9bbcc4ea8787bc5ed4abc0da575a212bd75bbbd0"
+  integrity sha512-NhOiUk5StO82074KpnrcITM0OdONUu0T15Sd0VbipxHJueofKAw9zdmAejht0EhwgQDFt63+1OLFYA5web0x9w==
+  dependencies:
+    file-loader "^4.0.0"
+    url-loader "^2.0.0"
 
 next@9.1.4:
   version "9.1.4"
@@ -5226,6 +5250,13 @@ pnp-webpack-plugin@1.5.0:
   integrity sha512-jd9olUr9D7do+RN8Wspzhpxhgp1n6Vd0NtQ4SFkmIACZoEL1nkyAdW9Ygrinjec0vgDcWjscFQQ1gDW8rsfKTg==
   dependencies:
     ts-pnp "^1.1.2"
+
+polished@^3.4.1:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/polished/-/polished-3.4.2.tgz#b4780dad81d64df55615fbfc77acb52fd17d88cd"
+  integrity sha512-9Rch6iMZckABr6EFCLPZsxodeBpXMo9H4fRlfR/9VjMEyy5xpo1/WgXlJGgSjPyVhEZNycbW7UmYMNyWS5MI0g==
+  dependencies:
+    "@babel/runtime" "^7.6.3"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -6201,7 +6232,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.0.0, schema-utils@^2.0.1:
+schema-utils@^2.0.0, schema-utils@^2.0.1, schema-utils@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.5.0.tgz#8f254f618d402cc80257486213c8970edfd7c22f"
   integrity sha512-32ISrwW2scPXHUSusP8qMg5dLUawKkyV+/qIEV9JdXKx+rsM6mi8vZY8khg2M69Qom16rtroWXD3Ybtiws38gQ==
@@ -7114,6 +7145,15 @@ url-loader@^1.1.1:
     loader-utils "^1.1.0"
     mime "^2.0.3"
     schema-utils "^1.0.0"
+
+url-loader@^2.0.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/url-loader/-/url-loader-2.3.0.tgz#e0e2ef658f003efb8ca41b0f3ffbf76bab88658b"
+  integrity sha512-goSdg8VY+7nPZKUEChZSEtW5gjbS66USIGCeSJ1OVOJ7Yfuh/36YxCwMi5HVEJh6mqUYOoy3NJ0vlOMrWsSHog==
+  dependencies:
+    loader-utils "^1.2.3"
+    mime "^2.4.4"
+    schema-utils "^2.5.0"
 
 url@0.11.0, url@^0.11.0:
   version "0.11.0"

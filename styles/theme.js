@@ -1,3 +1,5 @@
+import hex2rgba from 'hex2rgba'
+
 const heading = {
   fontFamily: 'heading',
   lineHeight: 'heading',
@@ -6,15 +8,19 @@ const heading = {
 
 export default {
   colors: {
-    text: '#000',
-    background: '#fff',
-    primary: '#3333EE',
-    secondary: '#111199',
-    highlight: '#efeffe',
+    text: '#161C42',
+    background: '#F5F7FA',
+    primary: '#5864FF',
+    secondary: '#2C38D9',
+    highlight: '#EAECFF',
     gray: '#777777',
-    darken: 'rgba(0,0,0,0.25 )',
+    darken: hex2rgba('#000000', 0.25),
     accent: '#609',
-    muted: '#f6f6f6',
+    muted: '#8E98B5',
+    active: '#80B9FF',
+    disabled: '#8E98B5',
+    border: '#C6C9D3',
+    button: hex2rgba('#FFFFFF', 0.25),
     modes: {
       dark: {
         text: '#9BA5A4',
@@ -51,6 +57,10 @@ export default {
   space: [
     0, 4, 8, 16, 32, 64, 128, 256, 512
   ],
+  letterSpacings: {
+    body: 'normal',
+    caps: '0.2em',
+  },
   // example custom breakpoints
   breakpoints: [
     '40em', '56em', '64em',
@@ -64,7 +74,7 @@ export default {
     },
     h1: {
       ...heading,
-      fontSize: [4, 5 ,6],
+      fontSize: [4, 5, 6],
       color: 'primary'
     },
     h2: {
@@ -89,7 +99,7 @@ export default {
     },
     p: {
       color: 'text',
-      fontSize: [0, 1, 2]
+      fontSize: [1, 2]
     },
     pre: {
       fontFamily: 'monospace',
@@ -131,6 +141,7 @@ export default {
       fontSize: [5, 6, 7],
     },
     caps: {
+      fontWeight: 'heading',
       textTransform: 'uppercase',
       letterSpacing: 'caps',
     },
@@ -138,4 +149,16 @@ export default {
       fontFamily: 'heading'
     }
   },
+  button: {
+    highlight: {
+      color: 'primary'
+    }
+  },
+  borderRadius: [0, 1, 2, 3, 4, 5],
+  block: {
+    default: {
+      marginTop: '1em',
+      marginBottom: '1em'
+    }
+  }
 }
