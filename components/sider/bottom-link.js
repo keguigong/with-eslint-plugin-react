@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
+import React from 'react'
 import { Flex } from '@theme-ui/components'
 
 const defaultStyles = {
@@ -13,6 +14,7 @@ const defaultStyles = {
 
 const BottomLink = ({
   children,
+  isCollapsed,
   overrideCSS,
   ...rest
 }) => {
@@ -21,16 +23,19 @@ const BottomLink = ({
   }
 
   return (
-    <Flex
-      {...props}
-      sx={{
-        '&&': {
-          ...defaultStyles,
-          ...overrideCSS,
-        }
-      }}>
-      {children}
-    </Flex>
+    <React.Fragment>
+      {isCollapsed ||
+        <Flex
+          {...props}
+          sx={{
+            '&&': {
+              ...defaultStyles,
+              ...overrideCSS,
+            }
+          }}>
+          {children}
+        </Flex>}
+    </React.Fragment>
   )
 }
 

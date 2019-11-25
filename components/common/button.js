@@ -2,19 +2,33 @@
 import { jsx } from 'theme-ui'
 import React from 'react'
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 
 import { buttonStyles } from '../../styles'
 
 const components = {
-  link: ({children, href, aCSS, ...rest}) => <Link href={href}><a sx={aCSS}><button {...rest}>{children}</button></a></Link>,
-  href: ({ children, href, aCSS, ...rest }) => <a sx={aCSS} href={href}><button {...rest}>{children}</button></a>,
-  button: ({ children, ...rest }) => <button {...rest}>{children}</button>,
+  link: ({ children, href, aCSS, isDisabled, ...rest }) =>
+    <Link href={href}>
+      <a sx={aCSS}>
+        <button disabled={isDisabled} {...rest}>
+          {children}
+        </button>
+      </a>
+    </Link>,
+  href: ({ children, href, aCSS, isDisabled, ...rest }) =>
+    <a sx={aCSS} href={href}>
+      <button disabled={isDisabled} {...rest}>
+        {children}
+      </button>
+    </a>,
+  button: ({ children, aCSS, isDisabled, ...rest }) =>
+    <button disabled={isDisabled} {...rest}>
+      {children}
+    </button>,
 }
 
 const Button = ({
-  to,
   href,
-  overrideCSS,
   icon,
   children,
   tag,
@@ -25,17 +39,26 @@ const Button = ({
   large,
   aCSS,
   isSelected,
+  isDisabled,
+  tracking,
   variant,
   onClick,
+  overrideCSS,
   ...rest
 }) => {
   const Tag = components[tag || 'button']
 
   const props = {
-    // to: !tag ? to : undefined,
-    // href: tag === 'href' ? to : undefined,
-    aCSS,
-    href: href ? href : '#',
+    aCSS: {
+      '&&': {
+        ...aCSS,
+        ...(isDisabled && {
+          // cursor: 'not-allowed'
+        })
+      }
+    },
+    isDisabled: isDisabled || false,
+    href: href || '#',
     onClick,
     ...rest,
   }
@@ -45,33 +68,33 @@ const Button = ({
       props.onClick(e)
     }
 
-    // let redirect = true
+    let redirect = true
 
-    // // Slightly modified logic from the gatsby-plugin-google-analytics
-    // // But this one should work with `Link` component as well
-    // if (
-    //   e.button !== 0 ||
-    //   e.altKey ||
-    //   e.ctrlKey ||
-    //   e.metaKey ||
-    //   e.shiftKey ||
-    //   e.defaultPrevented
-    // ) {
-    //   redirect = false
-    // }
+    // Slightly modified logic from the gatsby-plugin-google-analytics
+    // But this one should work with `Link` component as well
+    if (
+      e.button !== 0 ||
+      e.altKey ||
+      e.ctrlKey ||
+      e.metaKey ||
+      e.shiftKey ||
+      e.defaultPrevented
+    ) {
+      redirect = false
+    }
 
-    // if (props.target && props.target.toLowerCase() !== '_self') {
-    //   redirect = false
-    // }
+    if (props.target && props.target.toLowerCase() !== '_self') {
+      redirect = false
+    }
 
-    // if (tracking && window.ga) {
-    //   window.ga('send', 'event', {
-    //     eventCategory: 'Outbound Link',
-    //     eventAction: 'click',
-    //     eventLabel: `${tracking} - ${props.to || props.href}`,
-    //     transport: redirect ? 'beacon' : '',
-    //   })
-    // }
+    if (tracking && window.ga) {
+      window.ga('send', 'event', {
+        eventCategory: 'Outbound Link',
+        eventAction: 'click',
+        eventLabel: `${tracking} - ${props.href}`,
+        transport: redirect ? 'beacon' : '',
+      })
+    }
   }
 
   return (
@@ -96,6 +119,42 @@ const Button = ({
       {icon && <React.Fragment>{icon}</React.Fragment>}
     </Tag>
   )
+}
+
+Button.propTypes = {
+  href: PropTypes.string,
+  icon: PropTypes.element,
+  tag: PropTypes.string,
+  primary: PropTypes.bool,
+  link: PropTypes.bool,
+  secondary: PropTypes.bool,
+  small: PropTypes.bool,
+  large: PropTypes.bool,
+  aCSS: PropTypes.object,
+  isSelected: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  tracking: PropTypes.string,
+  variant: PropTypes.string,
+  onClick: PropTypes.func,
+  overrideCSS: PropTypes.object,
+}
+
+Button.defaultProps = {
+  href: '#',
+  icon: null,
+  tag: '',
+  primary: false,
+  link: false,
+  secondary: false,
+  small: false,
+  large: false,
+  aCSS: {},
+  isSelected: false,
+  isDisabled: false,
+  tracking: '',
+  variant: '',
+  onClick: f => f,
+  overrideCSS: {},
 }
 
 export default Button

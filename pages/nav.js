@@ -1,14 +1,14 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import { Box, Flex, Container } from '@theme-ui/components'
 
 import ThemeProviderWrapper from '../components/theme-provider-wrapper'
 import { PowerCharger, PowerHome, PowerSwap, PowerStorage, SmartBatteryModule, PowerMobile } from '../components/icon/devices'
 import { Home, ScaleExpand, Account } from '../components/icon/nav'
-import { Welkin, Welkin1, Docker, Nio } from '../components/icon/logo'
+import { Welkin } from '../components/icon/logo'
 import Sider from './sider'
 
-import Item from '../components/nav/nav-item'
+import NavItem from '../components/nav/nav-item'
 
 export default () => (
   <ThemeProviderWrapper>
@@ -21,7 +21,7 @@ export default () => (
         flexDirection: 'column',
         height: '100vh',
         width: 84,
-      }}> 
+      }}>
         <Flex sx={{
           mt: 15,
           mb: 15,
@@ -39,18 +39,26 @@ export default () => (
             flexGrow: 1,
             justifyContent: 'flex-start'
           }}>
-            <Item
-              overrideCSS={{p: 0, mt: 26, mb: 16}}
-              icon={<Welkin1 sx={{ height: 44, width: 44 }} />}
+            <NavItem
+              overrideCSS={{
+                p: 0,
+                mt: 26,
+                mb: 16,
+                '& svg': {
+                  height: 44,
+                  width: 44
+                }
+              }}
+              icon={<Welkin />}
               href='/'
             />
-            <Item isSelected icon={<Home />} href='/' />
-            <Item icon={<PowerSwap />} />
-            <Item icon={<PowerMobile />} />
-            <Item icon={<PowerStorage />} />
-            <Item icon={<PowerCharger />} />
-            <Item icon={<PowerHome />} />
-            <Item icon={<SmartBatteryModule />} />
+            <NavItem isSelected icon={<Home />} href='/' />
+            <NavItem icon={<PowerSwap />} />
+            <NavItem icon={<PowerMobile />} />
+            <NavItem icon={<PowerStorage />} />
+            <NavItem icon={<PowerCharger />} />
+            <NavItem icon={<PowerHome />} />
+            <NavItem icon={<SmartBatteryModule />} />
           </Flex>
           <Flex sx={{
             mb: 15,
@@ -58,8 +66,8 @@ export default () => (
             flexGrow: 1,
             justifyContent: 'flex-end'
           }}>
-            <Item href='' icon={<Account />} />
-            <Item icon={<ScaleExpand />} />
+            <NavItem href='' icon={<Account />} />
+            <NavItem icon={<ScaleExpand />} />
           </Flex>
         </Flex>
       </Flex>

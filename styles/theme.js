@@ -11,29 +11,28 @@ export default {
     text: '#161C42',
     background: '#F5F7FA',
     primary: '#5864FF',
-    secondary: '#2C38D9',
+    secondary: '#818AFF',
     highlight: '#EAECFF',
-    gray: '#777777',
-    darken: hex2rgba('#000000', 0.25),
     accent: '#609',
     muted: '#8E98B5',
     active: '#80B9FF',
     disabled: '#8E98B5',
+    bright: '#FFFFFF',
     border: '#C6C9D3',
-    button: hex2rgba('#FFFFFF', 0.25),
-    white: '#FFFFFF',
+    button: {
+      background: hex2rgba('#FFFFFF', 0.25)
+    },
     modes: {
       dark: {
         text: '#9BA5A4',
         background: '#000',
-        primary: '#69FFF0',
-        secondary: '#34B9AC',
-        muted: '#111',
+        primary: '#D1D1D1',
+        secondary: '#9A9A9A',
         highlight: '#484C4B',
-        white: '#3f3f3f'
       },
       pink: {
         primary: '#FF6A6A',
+        secondary: '',
         background: '#FFF0F0',
         highlight: '#F4C5C5',
       },
@@ -156,11 +155,4 @@ export default {
       color: 'primary'
     }
   },
-  borderRadius: [0, 1, 2, 3, 4, 5],
-  block: {
-    default: {
-      marginTop: '1em',
-      marginBottom: '1em'
-    }
-  }
 }

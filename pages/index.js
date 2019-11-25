@@ -6,7 +6,7 @@ import ThemeProviderWrapper from '../components/theme-provider-wrapper'
 import ColorToggleButton from '../components/color-mode-toggle'
 import { Button, Note } from '../components/common'
 import { PowerCharger, PowerHome, PowerSwap, PowerStorage, SmartBatteryModule, PowerMobile } from '../components/icon/devices'
-import { Home, ScaleCollapse, ScaleExpand, Account, Search} from '../components/icon/nav'
+import { Home, ScaleCollapse, ScaleExpand, Account, Search } from '../components/icon/nav'
 
 import Item from '../components/nav/nav-item'
 
@@ -29,15 +29,28 @@ export default () => (
       </Box>
       <Styled.h1>故都的秋</Styled.h1>
       <Note>asdasdasd</Note>
-      <Flex>
+      <Flex sx={{ mt: 20 }}>
         {deviceTypeArr.map((item, index) => (
           <Button
             icon={<PowerCharger />}
             key={index}
             sx={{ mr: 2 }}
             isSelected={index === 1}
+            isDisabled={index === 3}
           >{item}</Button>
         ))}
+      </Flex>
+      <Flex sx={{ mt: 20 }}>
+        <Button>default</Button>
+        <Button isDisabled>default</Button>
+        <Button primary>Primary</Button>
+        <Button primary isDisabled>Primary</Button>
+        <Button secondary>Secondary</Button>
+        <Button secondary isDisabled>secondary</Button>
+        <Button link>link</Button>
+        <Button link isDisabled>link</Button>
+        <Button isSelected>isSelected</Button>
+        <Button isSelected isDisabled>isSelected</Button>
       </Flex>
       <Styled.p>秋天，无论在什么地方的秋天，总是好的；可是啊，北国的秋，却特别地来得清，来得静，来得悲凉。我的不远千里，要从杭州赶上青岛，更要从青岛赶上北平来的理由，也不过想饱尝一尝这“秋”，这故都的秋味</Styled.p>
       <Styled.p>Autumn, wherever it is, always has something to recommend itself. In North China, however, it is particularly limpid, serene and melancholy. To enjoy its atmosphere to the full in the onetime capital, I have, therefore, made light of travelling a long distance from Hangzhou to Qingdao, and thence to Peiping.</Styled.p>

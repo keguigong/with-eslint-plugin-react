@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx, Styled } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import React from 'react'
 import { Button } from '../common'
-import hex2rgba from 'hex2rgba'
 import { lighten } from '@theme-ui/color'
+import PropTypes from 'prop-types'
 
 const defaultStyles = {
   height: 40,
@@ -12,55 +12,63 @@ const defaultStyles = {
   color: 'text',
   padding: 0,
   border: 'none',
+  backgroundColor: 'transparent',
   flex: 1,
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
   paddingLeft: '1em',
-  svg: {
-    ml: 0,
-  },
-  ':hover, :focus': {
+  ':hover:enabled, :focus:enabled': {
     // color: 'primary',
-    backgroundColor: lighten('primary', .3),
+    backgroundColor: lighten('primary', .25),
     backgroundImage: 'none'
+  },
+  ':disabled': {
+    color: 'disabled'
   }
 }
 
-export default ({
+const SiderItem = ({
   href,
-  isSelected,
   icon,
-  children,
-  overrideCSS,
   short,
+  children,
+  isSelected,
+  isDisabled,
+  isCollapsed,
+  overrideCSS,
   ...rest
 }) => {
+  const props = {
+    href: href || '#',
+    isDisabled: isDisabled || false,
+    ...rest
+  }
+
   return (
     <div sx={{
       height: 50,
-      padding: '5px',
       width: 'auto',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
     }}>
       <Button
-        {...rest}
-        href={href}
+        {...props}
         tag='link'
         overrideCSS={{
           '&&': {
             ...defaultStyles,
-            ...(short && {
-              width: 170
-            }),
+            ...(short && { width: 170 }),
             ...(isSelected && {
               backgroundColor: 'highlight',
               color: 'primary',
-              ':hover, :focus': {
-                backgroundColor: lighten('primary', .3),
-                backgroundImage: 'none',
+            }),
+            ...(isCollapsed && {
+              width: 54,
+              '& svg': {
+                height: 30,
+                width: 30
               }
             }),
             ...overrideCSS,
@@ -68,12 +76,36 @@ export default ({
         }}
       >
         {icon && <React.Fragment>{icon}</React.Fragment>}
-        <span sx={{
-          marginLeft: icon ? '1em' : 2
-        }}>
-          {children}
-        </span>
+        {!isCollapsed && (
+          <span sx={{
+            marginLeft: icon ? '1em' : 2
+          }}>
+            {children}
+          </span>
+        )}
       </Button>
     </div>
   )
 }
+
+SiderItem.propTypes = {
+  href: PropTypes.string,
+  icon: PropTypes.element,
+  short: PropTypes.bool,
+  isSelected: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isCollapsed: PropTypes.bool,
+  overrideCSS: PropTypes.object
+}
+
+SiderItem.defaultProps = {
+  href: '#',
+  icon: null,
+  short: false,
+  isSelected: false,
+  isDisabled: false,
+  isCollapsed: false,
+  overrideCSS: {}
+}
+
+export default SiderItem

@@ -13,12 +13,13 @@ const itemStyles = {
   borderRadius: 0,
   backgroundColor: 'transparent',
   transition: 'all ease-in .2s',
-  svg: {
-    ml: 0
-  },
   ':hover, :focus': {
     backgroundColor: hex2rgba('#FFF', 0.25),
     backgroundImage: 'none'
+  },
+  '& svg': {
+    height: 30,
+    width: 30
   }
 }
 

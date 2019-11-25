@@ -10,7 +10,7 @@ function Icon(props) {
       {...props}
     >
       <path
-        fill="#696D7F"
+        fill="currentColor"
         fillRule="evenodd"
         stroke="none"
         strokeWidth="1"
