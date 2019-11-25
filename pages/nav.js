@@ -1,15 +1,14 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
-import { Box, Heading, Flex } from '@theme-ui/components'
+import { Box, Flex, Container } from '@theme-ui/components'
 
 import ThemeProviderWrapper from '../components/theme-provider-wrapper'
-import ColorToggleButton from '../components/color-mode-toggle'
-import { Button, Note } from '../components/common'
 import { PowerCharger, PowerHome, PowerSwap, PowerStorage, SmartBatteryModule, PowerMobile } from '../components/icon/devices'
-import { Home, ScaleCollapse, ScaleExpand, Account, Search } from '../components/icon/nav'
-import { Welkin } from '../components/icon/logo'
+import { Home, ScaleExpand, Account } from '../components/icon/nav'
+import { Welkin, Welkin1, Docker, Nio } from '../components/icon/logo'
+import Sider from './sider'
 
-import Item from '../components/nav/item'
+import Item from '../components/nav/nav-item'
 
 export default () => (
   <ThemeProviderWrapper>
@@ -17,31 +16,36 @@ export default () => (
       bg: 'background',
     }}>
       <Flex sx={{
+        float: 'left',
         backgroundColor: 'white',
         flexDirection: 'column',
         height: '100vh',
-        width: 100,
-      }}>
+        width: 84,
+      }}> 
         <Flex sx={{
           mt: 15,
           mb: 15,
-          ml: 20,
+          ml: 15,
+          width: 64,
           flexGrow: 1,
           borderRadius: 10,
-          width: 64,
           flexDirection: 'column',
           backgroundColor: 'primary',
           justifyContent: 'stretch',
-          alignItems: 'flex-start'
+          alignItems: 'stretch'
         }}>
           <Flex sx={{
-            mt: 85,
             flexDirection: 'column',
             flexGrow: 1,
             justifyContent: 'flex-start'
           }}>
-            <Item icon={<Home />} />
-            <Item isSelected icon={<PowerSwap />} />
+            <Item
+              overrideCSS={{p: 0, mt: 26, mb: 16}}
+              icon={<Welkin1 sx={{ height: 44, width: 44 }} />}
+              href='/'
+            />
+            <Item isSelected icon={<Home />} href='/' />
+            <Item icon={<PowerSwap />} />
             <Item icon={<PowerMobile />} />
             <Item icon={<PowerStorage />} />
             <Item icon={<PowerCharger />} />
@@ -54,12 +58,16 @@ export default () => (
             flexGrow: 1,
             justifyContent: 'flex-end'
           }}>
-            <Item icon={<Search />} />
-            <Item icon={<Account />} />
+            <Item href='' icon={<Account />} />
             <Item icon={<ScaleExpand />} />
           </Flex>
         </Flex>
       </Flex>
+      <Container sx={{
+        minHeight: '100vh'
+      }}>
+        <Sider />
+      </Container>
     </Box>
   </ThemeProviderWrapper>
 )

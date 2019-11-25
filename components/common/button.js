@@ -34,7 +34,7 @@ const Button = ({
   const props = {
     // to: !tag ? to : undefined,
     // href: tag === 'href' ? to : undefined,
-    // aCSS,
+    aCSS,
     href: href ? href : '#',
     onClick,
     ...rest,

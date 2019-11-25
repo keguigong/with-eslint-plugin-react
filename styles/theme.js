@@ -21,6 +21,7 @@ export default {
     disabled: '#8E98B5',
     border: '#C6C9D3',
     button: hex2rgba('#FFFFFF', 0.25),
+    white: '#FFFFFF',
     modes: {
       dark: {
         text: '#9BA5A4',
@@ -28,7 +29,8 @@ export default {
         primary: '#69FFF0',
         secondary: '#34B9AC',
         muted: '#111',
-        highlight: '#484C4B'
+        highlight: '#484C4B',
+        white: '#3f3f3f'
       },
       pink: {
         primary: '#FF6A6A',

@@ -8,4 +8,7 @@ export default {
   a: {
     textDecoration: 'none'
   },
+  svg: {
+    margin: 0
+  }
 }

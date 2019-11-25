@@ -8,7 +8,7 @@ import { Button, Note } from '../components/common'
 import { PowerCharger, PowerHome, PowerSwap, PowerStorage, SmartBatteryModule, PowerMobile } from '../components/icon/devices'
 import { Home, ScaleCollapse, ScaleExpand, Account, Search} from '../components/icon/nav'
 
-import Item from '../components/nav/item'
+import Item from '../components/nav/nav-item'
 
 const deviceTypeArr = ['全部', '换电站', '超充桩', '移动充电车', '储能站', '家充桩']
 
@@ -22,6 +22,7 @@ export default () => (
       <Box p={4} bg='highlight'>
         <Flex sx={{ alignItems: 'center' }}>
           <Heading>Components</Heading>
+          <Button href='nav' tag='href'>nav</Button>
           <Button href='field' tag='href'>field</Button>
           <ColorToggleButton sx={{ ml: 2 }} />
         </Flex>

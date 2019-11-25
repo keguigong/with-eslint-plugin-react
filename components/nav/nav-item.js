@@ -6,11 +6,16 @@ import { lighten } from '@theme-ui/color'
 const itemStyles = {
   height: 64,
   width: 64,
+  display: 'inline-block',
+  justifyContent: 'center',
   color: 'white',
   border: 'none',
   borderRadius: 0,
   backgroundColor: 'transparent',
   transition: 'all ease-in .2s',
+  svg: {
+    ml: 0
+  },
   ':hover, :focus': {
     backgroundColor: hex2rgba('#FFF', 0.25),
     backgroundImage: 'none'
@@ -21,6 +26,7 @@ export default ({
   href,
   isSelected,
   icon,
+  overrideCSS,
   ...rest
 }) => {
   return (
@@ -39,7 +45,8 @@ export default ({
               backgroundColor: lighten('primary', .25),
               backgroundImage: 'none'
             }
-          })
+          }),
+          ...overrideCSS,
         }
       }}
     />
