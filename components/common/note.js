@@ -6,6 +6,7 @@ export default props => (
     {...props}
     sx={{
       // fontWeight: 'bold',
+      fontFamily: 'heading',
       padding: 3,
       bg: 'highlight',
       borderRadius: 5,

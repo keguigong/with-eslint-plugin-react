@@ -1,3 +1,5 @@
+import { focusStyle } from './index'
+
 export default {
   '*': {
     boxSizing: 'border-box',
@@ -6,7 +8,10 @@ export default {
     margin: 0,
   },
   a: {
-    textDecoration: 'none'
+    textDecoration: 'none',
+    ':focus': {
+      ...focusStyle
+    }
   },
   svg: {
     margin: 0

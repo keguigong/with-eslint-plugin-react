@@ -1,17 +1,17 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { Flex, Box, Heading } from '@theme-ui/components'
+import { Flex, Box, Button } from '../components/common'
 
-import ThemeProviderWrapper from '../../components/theme-provider-wrapper'
-import * as arrow from '../../components/icon/arrow'
-import * as devices from '../../components/icon/devices'
-import * as general from '../../components/icon/general'
-import * as logo from '../../components/icon/logo'
-import * as nav from '../../components/icon/nav'
-import * as peek from '../../components/icon/peek'
-import * as sider from '../../components/icon/sider'
-import * as status from '../../components/icon/status'
-import WelkinLototype from '../../components/icon/welkin-logotype'
+import ThemeProviderWrapper from '../components/theme-provider-wrapper'
+import * as arrow from '../components/icon/arrow'
+import * as devices from '../components/icon/devices'
+import * as general from '../components/icon/general'
+import * as logo from '../components/icon/logo'
+import * as nav from '../components/icon/nav'
+import * as peek from '../components/icon/peek'
+import * as sider from '../components/icon/sider'
+import * as status from '../components/icon/status'
+import WelkinLototype from '../components/icon/welkin-logotype'
 
 const IconBox = ({ children, title, overrideCSS }) => (
   <Flex sx={{
@@ -39,6 +39,7 @@ const IconBox = ({ children, title, overrideCSS }) => (
       content: `'${camel2normal(title)}'`,
       fontSize: 10,
       position: 'absolute',
+      fontFamily: 'body',
       bottom: 1,
       textAlign: 'center',
       color: 'disabled',
@@ -54,12 +55,13 @@ const IconBox = ({ children, title, overrideCSS }) => (
 )
 
 const HeadingTitle = ({ children }) => (
-  <Heading sx={{
+  <h1 sx={{
     display: 'block',
+    fontFamily: 'heading',
     ml: 16,
     mt: 80,
     mb: '6px'
-  }}>{children}</Heading>
+  }}>{children}</h1>
 )
 
 const Icons = () => (
@@ -72,12 +74,14 @@ const Icons = () => (
       <Box sx={{
         margin: '0 auto',
         maxWidth: 600,
-        marginTop: 200,
         marginBottom: 100
       }}>
+        <Flex my={3}>
+          <Button link tag='link' href='/'>主页</Button>
+        </Flex>
         <HeadingTitle>Lototype</HeadingTitle>
         <IconBox title='logotype' overrideCSS={{
-          width: 300,
+          width: 400,
           'svg': {
             height: 48,
             width: 226,

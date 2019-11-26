@@ -10,14 +10,14 @@ import { ArrowGo } from '../icon/arrow'
 const components = {
   link: ({ children, href, aCSS, isDisabled, target, ...rest }) =>
     <Link href={href}>
-      <a target={target}>
+      <a aCSS={aCSS} target={target}>
         <button disabled={isDisabled} {...rest}>
           {children}
         </button>
       </a>
     </Link>,
   href: ({ children, href, aCSS, isDisabled, target, ...rest }) =>
-    <a target={target} href={href}>
+    <a target={target} aCSS={aCSS} href={href}>
       <button disabled={isDisabled} {...rest}>
         {children}
       </button>
@@ -108,18 +108,16 @@ const Button = ({
       {...props}
       onClick={trackingOnClick}
       sx={{
-        '&&': {
-          ...buttonStyles(arrow).default,
-          ...(primary && buttonStyles().primary),
-          ...(secondary && buttonStyles().secondary),
-          ...(link && buttonStyles().link),
-          ...(small && buttonStyles().small),
-          ...(large && buttonStyles().large),
-          ...(xlarge && buttonStyles().xlarge),
-          ...(isSelected && buttonStyles().isSelected),
-          variant: variant,
-          ...overrideCSS,
-        },
+        ...buttonStyles(arrow).default,
+        ...(primary && buttonStyles().primary),
+        ...(secondary && buttonStyles().secondary),
+        ...(link && buttonStyles().link),
+        ...(small && buttonStyles().small),
+        ...(large && buttonStyles().large),
+        ...(xlarge && buttonStyles().xlarge),
+        ...(isSelected && buttonStyles().isSelected),
+        variant: variant,
+        ...overrideCSS,
       }}
     >
       {children}
@@ -139,6 +137,7 @@ Button.propTypes = {
   secondary: PropTypes.bool,
   small: PropTypes.bool,
   large: PropTypes.bool,
+  xlarge: PropTypes.bool,
   aCSS: PropTypes.object,
   isSelected: PropTypes.bool,
   isDisabled: PropTypes.bool,
@@ -159,6 +158,7 @@ Button.defaultProps = {
   secondary: false,
   small: false,
   large: false,
+  xlarge: false,
   aCSS: {},
   isSelected: false,
   isDisabled: false,

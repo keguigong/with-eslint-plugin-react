@@ -1,3 +1,6 @@
+export { default as Box } from './box'
 export { default as Button } from './button'
+export { default as Flex } from './flex'
+export { default as LoadingArea } from './loading-area'
 export { default as Select } from './select'
 export { default as Note } from './note'

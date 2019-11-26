@@ -1,16 +1,11 @@
 /** @jsx jsx */
 import { jsx, Styled } from 'theme-ui'
-import { Box, Heading, Flex } from '@theme-ui/components'
+import React from 'react'
+// import { Box, Heading, Flex } from '@theme-ui/components'
 
 import ThemeProviderWrapper from '../components/theme-provider-wrapper'
 import ColorToggleButton from '../components/color-mode-toggle'
-import { Button, Note } from '../components/common'
-import { PowerCharger, PowerHome, PowerSwap, PowerStorage, SmartBatteryModule, PowerMobile } from '../components/icon/devices'
-import { ArrowRight } from '../components/icon/arrow'
-
-import Item from '../components/nav/nav-item'
-
-const deviceTypeArr = ['全部', '换电站', '超充桩', '移动充电车', '储能站', '家充桩']
+import { Button, Note, LoadingArea, Box, Flex } from '../components/common'
 
 export default () => (
   <ThemeProviderWrapper>
@@ -19,44 +14,16 @@ export default () => (
       bg: 'background',
       minHeight: '100vh'
     }}>
-      <Box p={4} bg='highlight'>
-        <Flex sx={{ alignItems: 'center' }}>
-          <Heading>Components</Heading>
-          <Button href='nav' tag='href'>nav</Button>
-          <Button href='field' tag='href'>field</Button>
-          <ColorToggleButton sx={{ ml: 2 }} />
-        </Flex>
-      </Box>
-      <Styled.h1>故都的秋</Styled.h1>
-      <Note>asdasdasd</Note>
-      <Flex sx={{ mt: 20 }}>
-        {deviceTypeArr.map((item, index) => (
-          <Button
-            arrow
-            key={index}
-            sx={{ mr: 2 }}
-            isSelected={index === 1}
-            isDisabled={index === 3}
-          >{item}</Button>
-        ))}
+      <Flex my={3}>
+        <ColorToggleButton/>
+        <Button link tag='link' href='input'>查看mdx</Button>
+        <Button link tag='link' href='icons'>查看图标</Button>
+        <Button link tag='link' href='buttons'>查看按钮</Button>
       </Flex>
-      <Flex sx={{ mt: 20 }}>
-        <Button>default</Button>
-        <Button isDisabled>default</Button>
-        <Button primary>Primary</Button>
-        <Button primary isDisabled>Primary</Button>
-        <Button secondary>Secondary</Button>
-        <Button secondary isDisabled>secondary</Button>
-        <Button link>link</Button>
-        <Button link isDisabled>link</Button>
-        <Button isSelected>isSelected</Button>
-        <Button isSelected isDisabled>isSelected</Button>
-      </Flex>
-      <Flex sx={{ mt: 20 }}>
-        <Button xlarge primary icon={<PowerSwap />}></Button>
-        <Button href='input' tag='link'>Go to input</Button>
-        <Button secondary icon={<PowerMobile/>}>Power Mobile</Button>
-      </Flex>
+      <Note>秋天，无论在什么地方的秋天，Hello总是好的；可是啊，北国的秋，却特别地来得清，来得静，来得悲凉。我的不远千里，要从杭州赶上青岛，更要从青岛赶上北平来的理由，也不过想饱尝一尝这“秋”，这故都的秋味
+        Autumn, wherever it is, always has something to recommend itself. In North China, however, it is particularly limpid, serene and melancholy. To enjoy its atmosphere to the full in the onetime capital, I have, therefore, made light of travelling a long distance from Hangzhou to Qingdao, and thence to Peiping.
+      </Note>
+      <LoadingArea></LoadingArea>
       <Styled.p>秋天，无论在什么地方的秋天，<Button secondary>Hello</Button>总是好的；可是啊，北国的秋，却特别地来得清，来得静，来得悲凉。我的不远千里，要从杭州赶上青岛，更要从青岛赶上北平来的理由，也不过想饱尝一尝这“秋”，这故都的秋味</Styled.p>
       <Styled.p>Autumn, wherever it is, always has something to recommend itself. In North China, however, it is particularly limpid, serene and melancholy. To enjoy its atmosphere to the full in the onetime capital, I have, therefore, made light of travelling a long distance from Hangzhou to Qingdao, and thence to Peiping.</Styled.p>
       <Styled.p>江南，秋当然也是有的，但草木凋得慢，空气来得润，天的颜色显得淡，并且又时常多雨而少风；一个人夹在苏州上海杭州，或厦门香港广州的市民中间，混混沌沌地过去，只能感到一点点清凉，秋的味，秋的色，秋的意境与姿态，总看不饱，尝不透，赏玩不到十足。秋并不是名花，也并不是美酒，那一种半开、半醉的状态，在领略秋的过程上，是不合适的。</Styled.p>

@@ -11,17 +11,18 @@ const stripeAnimation = keyframes({
   '100%': { backgroundPosition: '30px 0px' },
 })
 
-const disabledCursor = {
+export const disabledCursor = {
   cursor: 'not-allowed',
 }
 
-const arrowMove = {
+export const arrowMove = {
   transform: 'translateX(0.4em)'
 }
 
 export const buttonStyles = (arrow=false) => {
   return {
     default: {
+      display: 'inline-flex',
       alignItems: 'center',
       borderRadius: 5,
       borderWidth: 1,
@@ -30,7 +31,6 @@ export const buttonStyles = (arrow=false) => {
       backgroundColor: 'button.background',
       color: 'text',
       cursor: 'pointer',
-      display: 'inline-flex',
       fontFamily: 'heading',
       fontWeight: 'bold',
       flexShrink: 0,
@@ -38,7 +38,7 @@ export const buttonStyles = (arrow=false) => {
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       px: 3,
-      height: '36px',
+      height: 36,
       backgroundSize: '30px 30px',
       transition: 'all ease-in .2s',
       '& svg': { 
