@@ -3,7 +3,7 @@ import { Button } from '../common'
 import hex2rgba from 'hex2rgba'
 import { lighten } from '@theme-ui/color'
 
-const itemStyles = {
+const defaultStyles = {
   height: 64,
   width: 64,
   display: 'inline-block',
@@ -38,7 +38,7 @@ export default ({
       icon={icon}
       overrideCSS={{
         '&&': {
-          ...itemStyles,
+          ...defaultStyles,
           ...(isSelected && {
             backgroundColor: 'white',
             color: 'primary',

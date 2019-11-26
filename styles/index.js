@@ -15,7 +15,11 @@ const disabledCursor = {
   cursor: 'not-allowed',
 }
 
-export const buttonStyles = t => {
+const arrowMove = {
+  transform: 'translateX(0.4em)'
+}
+
+export const buttonStyles = (arrow=false) => {
   return {
     default: {
       alignItems: 'center',
@@ -37,20 +41,26 @@ export const buttonStyles = t => {
       height: '36px',
       backgroundSize: '30px 30px',
       transition: 'all ease-in .2s',
+      '& svg': { 
+        marginLeft: '.3em',
+        transition: 'transform ease-in .2s',
+      },
       ':hover:enabled, :focus:enabled': {
         backgroundColor: 'primary',
         backgroundImage: 'linear-gradient(135deg, rgba(0,0,0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, 0.1) 50%, rgba(0,0,0, 0.1) 75%, transparent 75%, transparent)',
         color: 'white',
         animation: `${stripeAnimation} 1.8s linear infinite`,
         // borderColor: 'gatsby',
+        '& svg': {
+          ...(arrow && arrowMove)
+        }
       },
       ':focus:enabled': { ...focusStyle },
       ':after': { content: '\'\'', display: 'block' },
       ':disabled': {
         color: 'disabled',
         ...disabledCursor
-      }
-      // '& svg': { marginLeft: '.2em' },
+      },
     },
     primary: {
       backgroundColor: 'primary',
@@ -58,7 +68,7 @@ export const buttonStyles = t => {
       ':disabled': {
         backgroundColor: 'secondary',
         color: darken('bright', .15),
-        ...disabledCursor
+        ...disabledCursor,
       }
     },
     secondary: {
@@ -78,7 +88,7 @@ export const buttonStyles = t => {
       border: 'none',
       ':hover:enabled, :focus:enabled': {
         background: 'none',
-        color: lighten('primary', .15)
+        color: lighten('primary', .15),
       }
     },
     isSelected: {

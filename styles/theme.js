@@ -39,8 +39,8 @@ export default {
     }
   },
   fonts: {
-    body: '-apple-system, BlinkMacSystemFont, "Pingfang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-    heading: 'Blue Sky Standard, -apple-system, BlinkMacSystemFont, "Pingfang SC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+    body: 'Noto Sans CJK SC, -apple-system, BlinkMacSystemFont, Pingfang SC, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
+    heading: 'Blue Sky Standard, Noto Sans CJK SC, -apple-system, BlinkMacSystemFont, Pingfang SC, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
     monospace: 'SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace',
   },
   fontWeights: {

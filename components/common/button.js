@@ -5,18 +5,19 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 import { buttonStyles } from '../../styles'
+import { ArrowGo } from '../icon/arrow'
 
 const components = {
-  link: ({ children, href, aCSS, isDisabled, ...rest }) =>
+  link: ({ children, href, aCSS, isDisabled, target, ...rest }) =>
     <Link href={href}>
-      <a sx={aCSS}>
+      <a target={target}>
         <button disabled={isDisabled} {...rest}>
           {children}
         </button>
       </a>
     </Link>,
-  href: ({ children, href, aCSS, isDisabled, ...rest }) =>
-    <a sx={aCSS} href={href}>
+  href: ({ children, href, aCSS, isDisabled, target, ...rest }) =>
+    <a target={target} href={href}>
       <button disabled={isDisabled} {...rest}>
         {children}
       </button>
@@ -29,7 +30,9 @@ const components = {
 
 const Button = ({
   href,
+  target,
   icon,
+  arrow,
   children,
   tag,
   primary,
@@ -37,6 +40,7 @@ const Button = ({
   secondary,
   small,
   large,
+  xlarge,
   aCSS,
   isSelected,
   isDisabled,
@@ -57,8 +61,10 @@ const Button = ({
         })
       }
     },
+    icon: arrow ? <ArrowGo /> : icon,
     isDisabled: isDisabled || false,
     href: href || '#',
+    target: target,
     onClick,
     ...rest,
   }
@@ -72,29 +78,29 @@ const Button = ({
 
     // Slightly modified logic from the gatsby-plugin-google-analytics
     // But this one should work with `Link` component as well
-    if (
-      e.button !== 0 ||
-      e.altKey ||
-      e.ctrlKey ||
-      e.metaKey ||
-      e.shiftKey ||
-      e.defaultPrevented
-    ) {
-      redirect = false
-    }
+    // if (
+    //   e.button !== 0 ||
+    //   e.altKey ||
+    //   e.ctrlKey ||
+    //   e.metaKey ||
+    //   e.shiftKey ||
+    //   e.defaultPrevented
+    // ) {
+    //   redirect = false
+    // }
 
-    if (props.target && props.target.toLowerCase() !== '_self') {
-      redirect = false
-    }
+    // if (props.target && props.target.toLowerCase() !== '_self') {
+    //   redirect = false
+    // }
 
-    if (tracking && window.ga) {
-      window.ga('send', 'event', {
-        eventCategory: 'Outbound Link',
-        eventAction: 'click',
-        eventLabel: `${tracking} - ${props.href}`,
-        transport: redirect ? 'beacon' : '',
-      })
-    }
+    // if (tracking && window.ga) {
+    //   window.ga('send', 'event', {
+    //     eventCategory: 'Outbound Link',
+    //     eventAction: 'click',
+    //     eventLabel: `${tracking} - ${props.href}`,
+    //     transport: redirect ? 'beacon' : '',
+    //   })
+    // }
   }
 
   return (
@@ -103,12 +109,13 @@ const Button = ({
       onClick={trackingOnClick}
       sx={{
         '&&': {
-          ...buttonStyles().default,
+          ...buttonStyles(arrow).default,
           ...(primary && buttonStyles().primary),
           ...(secondary && buttonStyles().secondary),
           ...(link && buttonStyles().link),
           ...(small && buttonStyles().small),
           ...(large && buttonStyles().large),
+          ...(xlarge && buttonStyles().xlarge),
           ...(isSelected && buttonStyles().isSelected),
           variant: variant,
           ...overrideCSS,
@@ -116,14 +123,16 @@ const Button = ({
       }}
     >
       {children}
-      {icon && <React.Fragment>{icon}</React.Fragment>}
+      {props.icon && !link && <React.Fragment>{props.icon}</React.Fragment>}
     </Tag>
   )
 }
 
 Button.propTypes = {
   href: PropTypes.string,
+  target: PropTypes.string,
   icon: PropTypes.element,
+  arrow: PropTypes.bool,
   tag: PropTypes.string,
   primary: PropTypes.bool,
   link: PropTypes.bool,
@@ -141,7 +150,9 @@ Button.propTypes = {
 
 Button.defaultProps = {
   href: '#',
+  target: '',
   icon: null,
+  arrow: false,
   tag: '',
   primary: false,
   link: false,
