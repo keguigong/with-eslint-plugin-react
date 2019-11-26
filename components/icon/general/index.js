@@ -1,4 +1,4 @@
-export { default as ArrowLeft } from './favorite'
+export { default as ArrowLeft } from './arrow-left'
 export { default as ArrowRight } from './arrow-right'
 export { default as BackArrow } from './back-arrow'
 export { default as Close } from './close'

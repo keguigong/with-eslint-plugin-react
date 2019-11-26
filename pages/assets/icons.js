@@ -1,19 +1,19 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React from 'react'
 import { Flex, Box, Heading } from '@theme-ui/components'
 
-import ThemeProviderWrapper from '../components/theme-provider-wrapper'
-import * as arrow from '../components/icon/arrow'
-import * as devices from '../components/icon/devices'
-import * as general from '../components/icon/general'
-import * as logo from '../components/icon/logo'
-import * as nav from '../components/icon/nav'
-import * as peek from '../components/icon/peek'
-import * as sider from '../components/icon/sider'
-import * as status from '../components/icon/status'
+import ThemeProviderWrapper from '../../components/theme-provider-wrapper'
+import * as arrow from '../../components/icon/arrow'
+import * as devices from '../../components/icon/devices'
+import * as general from '../../components/icon/general'
+import * as logo from '../../components/icon/logo'
+import * as nav from '../../components/icon/nav'
+import * as peek from '../../components/icon/peek'
+import * as sider from '../../components/icon/sider'
+import * as status from '../../components/icon/status'
+import WelkinLototype from '../../components/icon/welkin-logotype'
 
-const IconBox = ({ children, title }) => (
+const IconBox = ({ children, title, overrideCSS }) => (
   <Flex sx={{
     height: 100,
     width: 100,
@@ -46,7 +46,8 @@ const IconBox = ({ children, title }) => (
     },
     ':hover::after': {
       color: 'primary'
-    }
+    },
+    ...overrideCSS
   }}>
     {children}
   </Flex>
@@ -70,8 +71,19 @@ const Icons = () => (
     }}>
       <Box sx={{
         margin: '0 auto',
-        maxWidth: 600
+        maxWidth: 600,
+        marginTop: 200,
+        marginBottom: 100
       }}>
+        <HeadingTitle>Lototype</HeadingTitle>
+        <IconBox title='logotype' overrideCSS={{
+          width: 300,
+          'svg': {
+            height: 48,
+            width: 226,
+            transition: 'all .3s',
+          },
+        }}><WelkinLototype /></IconBox>
         <HeadingTitle>Logo</HeadingTitle>
         {Object.keys(logo).map((item, index) => <IconBox key={index} title={item}>{logo[item]()}</IconBox>)}
         <HeadingTitle>Arrow</HeadingTitle>
