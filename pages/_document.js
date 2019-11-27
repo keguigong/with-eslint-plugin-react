@@ -2,10 +2,12 @@
 // Event handlers like onClick can't be added to this file
 
 // ./pages/_document.js
+
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
+
 import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-
-import Global from '../styles/global'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -17,7 +19,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <body>
-          <Global />
           <Main />
           <NextScript />
         </body>

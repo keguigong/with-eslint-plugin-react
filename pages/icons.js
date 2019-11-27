@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { Flex, Box, Button } from '../components/common'
+import React from 'react'
+import { Flex, Content } from '../components/common'
 
-import ThemeProviderWrapper from '../components/theme-provider-wrapper'
 import * as arrow from '../components/icon/arrow'
 import * as devices from '../components/icon/devices'
 import * as general from '../components/icon/general'
@@ -15,40 +15,32 @@ import WelkinLototype from '../components/icon/welkin-logotype'
 
 import Navigator from '../components/nav/navigator'
 
-export default () => (
-  <ThemeProviderWrapper>
-    <Box sx={{
-      margin: '0 auto',
-      maxWidth: 600,
-      marginBottom: 100
-    }}>
-      <Navigator/>
-      <HeadingTitle>Lototype</HeadingTitle>
-      <IconBox title='logotype' overrideCSS={{
-        width: 200,
-        'svg': {
-          transition: 'all .3s',
-        },
-      }}><WelkinLototype /></IconBox>
-      <HeadingTitle>Logo</HeadingTitle>
-      {Object.keys(logo).map((item, index) => <IconBox key={index} title={item}>{logo[item]()}</IconBox>)}
-      <HeadingTitle>Arrow</HeadingTitle>
-      {Object.keys(arrow).map((item, index) => <IconBox key={index} title={item}>{arrow[item]()}</IconBox>)}
-      <HeadingTitle>Devices</HeadingTitle>
-      {Object.keys(devices).map((item, index) => <IconBox key={index} title={item}>{devices[item]()}</IconBox>)}
-      <HeadingTitle>General</HeadingTitle>
-      {Object.keys(general).map((item, index) => <IconBox key={index} title={item}>{general[item]()}</IconBox>)}
-      <HeadingTitle>Nav</HeadingTitle>
-      {Object.keys(nav).map((item, index) => <IconBox key={index} title={item}>{nav[item]()}</IconBox>)}
-      <HeadingTitle>Peek</HeadingTitle>
-      {Object.keys(peek).map((item, index) => <IconBox key={index} title={item}>{peek[item]()}</IconBox>)}
-      <HeadingTitle>Sider</HeadingTitle>
-      {Object.keys(sider).map((item, index) => <IconBox key={index} title={item}>{sider[item]()}</IconBox>)}
-      <HeadingTitle>Status</HeadingTitle>
-      {Object.keys(status).map((item, index) => <IconBox key={index} title={item}>{status[item]()}</IconBox>)}
-    </Box>
-  </ThemeProviderWrapper>
-)
+export default () => <Content>
+  <Navigator />
+  <HeadingTitle>Lototype</HeadingTitle>
+  <IconBox title='logotype' overrideCSS={{
+    width: 200,
+    'svg': {
+      transition: 'all .3s',
+    },
+  }}><WelkinLototype /></IconBox>
+  <HeadingTitle>Logo</HeadingTitle>
+  {Object.keys(logo).map((item, index) => <IconBox key={index} title={item}>{logo[item]()}</IconBox>)}
+  <HeadingTitle>Arrow</HeadingTitle>
+  {Object.keys(arrow).map((item, index) => <IconBox key={index} title={item}>{arrow[item]()}</IconBox>)}
+  <HeadingTitle>Devices</HeadingTitle>
+  {Object.keys(devices).map((item, index) => <IconBox key={index} title={item}>{devices[item]()}</IconBox>)}
+  <HeadingTitle>General</HeadingTitle>
+  {Object.keys(general).map((item, index) => <IconBox key={index} title={item}>{general[item]()}</IconBox>)}
+  <HeadingTitle>Nav</HeadingTitle>
+  {Object.keys(nav).map((item, index) => <IconBox key={index} title={item}>{nav[item]()}</IconBox>)}
+  <HeadingTitle>Peek</HeadingTitle>
+  {Object.keys(peek).map((item, index) => <IconBox key={index} title={item}>{peek[item]()}</IconBox>)}
+  <HeadingTitle>Sider</HeadingTitle>
+  {Object.keys(sider).map((item, index) => <IconBox key={index} title={item}>{sider[item]()}</IconBox>)}
+  <HeadingTitle>Status</HeadingTitle>
+  {Object.keys(status).map((item, index) => <IconBox key={index} title={item}>{status[item]()}</IconBox>)}
+</Content>
 
 const IconBox = ({ children, title, overrideCSS }) => (
   <Flex sx={{
@@ -95,9 +87,11 @@ const HeadingTitle = ({ children }) => (
   <h1 sx={{
     display: 'block',
     fontFamily: 'heading',
+    color: 'text',
+    p: 4,
     ml: 16,
     mt: 80,
-    mb: '6px'
+    mb: 1
   }}>{children}</h1>
 )
 

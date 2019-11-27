@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import React from 'react'
 import { Global } from '@emotion/core'
 
@@ -11,8 +13,7 @@ export default props =>
         margin: 0,
         color: 'text',
         fontFamily: 'body',
-        // fontSize: '62.5%',
-        backgroundColor: 'white',
+        // backgroundColor: 'background'
       },
       a: {
         textDecoration: 'none'

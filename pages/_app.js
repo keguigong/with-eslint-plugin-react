@@ -1,5 +1,9 @@
+/** @jsx jsx */
 import React from 'react'
 import App from 'next/app'
+import { jsx, ThemeProvider } from 'theme-ui'
+import theme from '../styles/theme'
+import GlobalStyles from '../styles/global'
 
 class MyApp extends App {
   // Only uncomment this method if you have blocking data requirements for
@@ -16,7 +20,10 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props
-    return <Component {...pageProps} />
+    return <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Component {...pageProps} />
+    </ThemeProvider>
   }
 }
 

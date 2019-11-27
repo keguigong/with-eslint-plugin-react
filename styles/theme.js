@@ -12,9 +12,8 @@ export default {
     background: '#F5F7FA',
     primary: '#5864FF',
     secondary: '#818AFF',
-    highlight: '#EAECFF',
-    accent: '#609',
-    muted: '#8E98B5',
+    highlight: '#D2D5FF',
+    hover: '#EAECFF',
     active: '#80B9FF',
     disabled: '#8E98B5',
     bright: '#FFFFFF',
@@ -49,25 +48,16 @@ export default {
       white: '#FFFFFF',
       yellow: '#FFB36A',
     },
-    button: {
-      background: hex2rgba('#FFFFFF', 0.25)
-    },
-    heading: {
-      h1: '#182677'
-    },
     modes: {
       dark: {
-        text: '#9BA5A4',
-        background: '#000',
-        primary: '#D1D1D1',
-        secondary: '#9A9A9A',
-        highlight: '#484C4B',
-      },
-      pink: {
-        primary: '#FF6A6A',
-        secondary: '',
-        background: '#FFF0F0',
-        highlight: '#F4C5C5',
+        text: '#FFFFFF',
+        background: '#222639',
+        primary: '#5864FF',
+        secondary: '#5D3D9D',
+        highlight: '#333850',
+        hover: '#25295D',
+        disabled: '#525796',
+        bright: '#1B1E2E',
       },
     }
   },
@@ -118,7 +108,7 @@ export default {
     },
     h1: {
       ...heading,
-      color: 'heading.h1',
+      color: 'text',
       fontSize: [2, 3]
     },
   },

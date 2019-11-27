@@ -85,7 +85,7 @@ const defaultStyles = {
   paddingLeft: '1em',
   ':hover:enabled, :focus:enabled': {
     color: 'text',
-    backgroundColor: lighten('primary', .25),
+    backgroundColor: 'hover',
     backgroundImage: 'none'
   },
   ':disabled': {

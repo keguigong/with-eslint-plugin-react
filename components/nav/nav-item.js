@@ -7,7 +7,7 @@ const defaultStyles = {
   height: 64,
   width: '100%',
   justifyContent: 'center',
-  color: 'white',
+  color: 'bright',
   border: 'none',
   borderRadius: 0,
   backgroundColor: 'transparent',
@@ -46,10 +46,10 @@ export default ({
       overrideCSS={{
         ...defaultStyles,
         ...(isSelected && {
-          backgroundColor: 'white',
+          backgroundColor: 'bright',
           color: 'primary',
           ':hover:enabled, :focus:enabled': {
-            backgroundColor: lighten('primary', .25),
+            backgroundColor: 'hover',
             backgroundImage: 'none'
           }
         }),

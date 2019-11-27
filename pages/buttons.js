@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import ThemeProviderWrapper from '../components/theme-provider-wrapper'
+import React from 'react'
 import { Button, Box, Flex } from '../components/common'
 import { PowerSwap, PowerMobile } from '../components/icon/devices'
 import Navigator from '../components/nav/navigator'
@@ -8,7 +8,7 @@ import Navigator from '../components/nav/navigator'
 const deviceTypeArr = ['全部', '换电站', '超充桩', '移动充电车', '储能站', '家充桩']
 
 export default () => (
-  <ThemeProviderWrapper>
+  <React.Fragment>
     <Navigator />
     <Flex my={3}>
       {deviceTypeArr.map((item, index) => (
@@ -36,5 +36,5 @@ export default () => (
     <Button xlarge primary tag='link' icon={<PowerSwap />}></Button>
     <Button href='input' tag='link'>Go to input</Button>
     <Button secondary icon={<PowerMobile />}>Power Mobile</Button>
-  </ThemeProviderWrapper>
+  </React.Fragment>
 )

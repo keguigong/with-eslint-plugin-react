@@ -2,7 +2,6 @@
 import { jsx } from 'theme-ui'
 import { Box } from '@theme-ui/components'
 
-import ThemeProviderWrapper from '../components/theme-provider-wrapper'
 import { PowerCharger, PowerHome, PowerSwap, PowerStorage, SmartBatteryModule, PowerMobile } from '../components/icon/devices'
 import { Home, ScaleExpand, Account } from '../components/icon/nav'
 import { Welkin } from '../components/icon/logo'
@@ -10,28 +9,26 @@ import { Welkin } from '../components/icon/logo'
 import NavItem from '../components/nav/nav-item'
 
 export default () => (
-  <ThemeProviderWrapper>
-    <header sx={styles.header}>
-      <nav sx={styles.nav}>
-        <NavItem
-          overrideCSS={styles.logo}
-          icon={<Welkin />}
-          href='/'
-        />
-        <Box sx={styles.box}>
-          <NavItem icon={<Home />} href='/' />
-          <NavItem isSelected icon={<PowerSwap />} />
-          <NavItem icon={<PowerMobile />} />
-          <NavItem icon={<PowerStorage />} />
-          <NavItem icon={<PowerCharger />} />
-          <NavItem icon={<PowerHome />} />
-          <NavItem icon={<SmartBatteryModule />} />
-        </Box>
-        <NavItem href='' icon={<Account />} />
-        <NavItem icon={<ScaleExpand />} />
-      </nav>
-    </header>
-  </ThemeProviderWrapper>
+  <header sx={styles.header}>
+    <nav sx={styles.nav}>
+      <NavItem
+        overrideCSS={styles.logo}
+        icon={<Welkin />}
+        href='/'
+      />
+      <Box sx={styles.box}>
+        <NavItem icon={<Home />} href='/' />
+        <NavItem isSelected icon={<PowerSwap />} />
+        <NavItem icon={<PowerMobile />} />
+        <NavItem icon={<PowerStorage />} />
+        <NavItem icon={<PowerCharger />} />
+        <NavItem icon={<PowerHome />} />
+        <NavItem icon={<SmartBatteryModule />} />
+      </Box>
+      <NavItem href='' icon={<Account />} />
+      <NavItem icon={<ScaleExpand />} />
+    </nav>
+  </header>
 )
 
 const styles = {
@@ -41,7 +38,7 @@ const styles = {
     // height: '100vh',
     width: 84,
     display: 'flex',
-    backgroundColor: 'white',
+    backgroundColor: 'bright',
     padding: '10px 0 10px 10px',
   },
   nav: {

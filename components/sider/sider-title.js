@@ -21,7 +21,7 @@ export default ({
       height: 90,
       width: '100%',
       pl: 20,
-      backgroundColor: 'white',
+      // backgroundColor: 'bright',
       ...(props.more && { cursor: 'pointer' })
     }}>
       <Avatar large type={type} />
@@ -33,7 +33,7 @@ export default ({
           ...(props.more && {
             fontFamily: 'heading',
             fontSize: [0],
-            color: 'heading.h1',
+            color: 'text',
             margin: 0,
             display: 'block',
           })
