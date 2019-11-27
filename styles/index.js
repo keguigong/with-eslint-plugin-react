@@ -19,7 +19,7 @@ export const arrowMove = {
   transform: 'translateX(0.4em)'
 }
 
-export const buttonStyles = (arrow=false) => {
+export const buttonStyles = (arrow = false) => {
   return {
     default: {
       display: 'inline-flex',
@@ -39,10 +39,11 @@ export const buttonStyles = (arrow=false) => {
       whiteSpace: 'nowrap',
       px: 3,
       height: 36,
+      // width: '100%',
       backgroundSize: '30px 30px',
       transition: 'all ease-in .2s',
-      '& svg': { 
-        marginLeft: '.3em',
+      '& svg': {
+        ...(arrow && { marginLeft: '.35em' }),
         transition: 'transform ease-in .2s',
       },
       ':hover:enabled, :focus:enabled': {

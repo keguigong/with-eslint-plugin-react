@@ -13,6 +13,43 @@ import * as sider from '../components/icon/sider'
 import * as status from '../components/icon/status'
 import WelkinLototype from '../components/icon/welkin-logotype'
 
+import Navigator from '../components/nav/navigator'
+
+export default () => (
+  <ThemeProviderWrapper>
+    <Box sx={{
+      margin: '0 auto',
+      maxWidth: 600,
+      marginBottom: 100
+    }}>
+      <Navigator/>
+      <HeadingTitle>Lototype</HeadingTitle>
+      <IconBox title='logotype' overrideCSS={{
+        width: 200,
+        'svg': {
+          transition: 'all .3s',
+        },
+      }}><WelkinLototype /></IconBox>
+      <HeadingTitle>Logo</HeadingTitle>
+      {Object.keys(logo).map((item, index) => <IconBox key={index} title={item}>{logo[item]()}</IconBox>)}
+      <HeadingTitle>Arrow</HeadingTitle>
+      {Object.keys(arrow).map((item, index) => <IconBox key={index} title={item}>{arrow[item]()}</IconBox>)}
+      <HeadingTitle>Devices</HeadingTitle>
+      {Object.keys(devices).map((item, index) => <IconBox key={index} title={item}>{devices[item]()}</IconBox>)}
+      <HeadingTitle>General</HeadingTitle>
+      {Object.keys(general).map((item, index) => <IconBox key={index} title={item}>{general[item]()}</IconBox>)}
+      <HeadingTitle>Nav</HeadingTitle>
+      {Object.keys(nav).map((item, index) => <IconBox key={index} title={item}>{nav[item]()}</IconBox>)}
+      <HeadingTitle>Peek</HeadingTitle>
+      {Object.keys(peek).map((item, index) => <IconBox key={index} title={item}>{peek[item]()}</IconBox>)}
+      <HeadingTitle>Sider</HeadingTitle>
+      {Object.keys(sider).map((item, index) => <IconBox key={index} title={item}>{sider[item]()}</IconBox>)}
+      <HeadingTitle>Status</HeadingTitle>
+      {Object.keys(status).map((item, index) => <IconBox key={index} title={item}>{status[item]()}</IconBox>)}
+    </Box>
+  </ThemeProviderWrapper>
+)
+
 const IconBox = ({ children, title, overrideCSS }) => (
   <Flex sx={{
     height: 100,
@@ -32,7 +69,7 @@ const IconBox = ({ children, title, overrideCSS }) => (
       backgroundColor: 'highlight',
       cursor: 'pointer',
       svg: {
-        transform: 'scale(1.2)'
+        transform: 'scale(1.15)'
       }
     },
     '::after': {
@@ -63,53 +100,6 @@ const HeadingTitle = ({ children }) => (
     mb: '6px'
   }}>{children}</h1>
 )
-
-const Icons = () => (
-  <ThemeProviderWrapper>
-    <Box sx={{
-      bg: 'background',
-      minHeight: '100vh',
-      padding: 20
-    }}>
-      <Box sx={{
-        margin: '0 auto',
-        maxWidth: 600,
-        marginBottom: 100
-      }}>
-        <Flex my={3}>
-          <Button link tag='link' href='/'>主页</Button>
-        </Flex>
-        <HeadingTitle>Lototype</HeadingTitle>
-        <IconBox title='logotype' overrideCSS={{
-          width: 400,
-          'svg': {
-            height: 48,
-            width: 226,
-            transition: 'all .3s',
-          },
-        }}><WelkinLototype /></IconBox>
-        <HeadingTitle>Logo</HeadingTitle>
-        {Object.keys(logo).map((item, index) => <IconBox key={index} title={item}>{logo[item]()}</IconBox>)}
-        <HeadingTitle>Arrow</HeadingTitle>
-        {Object.keys(arrow).map((item, index) => <IconBox key={index} title={item}>{arrow[item]()}</IconBox>)}
-        <HeadingTitle>Devices</HeadingTitle>
-        {Object.keys(devices).map((item, index) => <IconBox key={index} title={item}>{devices[item]()}</IconBox>)}
-        <HeadingTitle>General</HeadingTitle>
-        {Object.keys(general).map((item, index) => <IconBox key={index} title={item}>{general[item]()}</IconBox>)}
-        <HeadingTitle>Nav</HeadingTitle>
-        {Object.keys(nav).map((item, index) => <IconBox key={index} title={item}>{nav[item]()}</IconBox>)}
-        <HeadingTitle>Peek</HeadingTitle>
-        {Object.keys(peek).map((item, index) => <IconBox key={index} title={item}>{peek[item]()}</IconBox>)}
-        <HeadingTitle>Sider</HeadingTitle>
-        {Object.keys(sider).map((item, index) => <IconBox key={index} title={item}>{sider[item]()}</IconBox>)}
-        <HeadingTitle>Status</HeadingTitle>
-        {Object.keys(status).map((item, index) => <IconBox key={index} title={item}>{status[item]()}</IconBox>)}
-      </Box>
-    </Box>
-  </ThemeProviderWrapper>
-)
-
-export default Icons
 
 function camel2normal(str) {
   let resStr = ''

@@ -5,30 +5,7 @@ import { Button } from '../common'
 import { lighten } from '@theme-ui/color'
 import PropTypes from 'prop-types'
 
-const defaultStyles = {
-  height: 40,
-  width: 190,
-  fontSize: [0, 1],
-  color: 'text',
-  padding: 0,
-  border: 'none',
-  backgroundColor: 'transparent',
-  flex: 1,
-  display: 'flex',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  paddingLeft: '1em',
-  ':hover:enabled, :focus:enabled': {
-    // color: 'primary',
-    backgroundColor: lighten('primary', .25),
-    backgroundImage: 'none'
-  },
-  ':disabled': {
-    color: 'disabled'
-  }
-}
-
-const SiderItem = ({
+export default ({
   href,
   icon,
   short,
@@ -47,7 +24,8 @@ const SiderItem = ({
 
   return (
     <div sx={{
-      height: 50,
+      // height: 50,
+      p: 1,
       width: 'auto',
       display: 'flex',
       alignItems: 'center',
@@ -56,10 +34,14 @@ const SiderItem = ({
       <Button
         {...props}
         tag='link'
+        aCSS={{
+          display: 'inline-block',
+          width: '100%',
+        }}
         overrideCSS={{
           '&&': {
             ...defaultStyles,
-            ...(short && { width: 170 }),
+            ...textOverflow,
             ...(isSelected && {
               backgroundColor: 'highlight',
               color: 'primary',
@@ -88,24 +70,31 @@ const SiderItem = ({
   )
 }
 
-SiderItem.propTypes = {
-  href: PropTypes.string,
-  icon: PropTypes.element,
-  short: PropTypes.bool,
-  isSelected: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  isCollapsed: PropTypes.bool,
-  overrideCSS: PropTypes.object
+const defaultStyles = {
+  height: 40,
+  width: '100%',
+  fontSize: [0, 1],
+  color: 'text',
+  padding: 0,
+  border: 'none',
+  backgroundColor: 'transparent',
+  flex: 1,
+  display: 'flex',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  paddingLeft: '1em',
+  ':hover:enabled, :focus:enabled': {
+    color: 'text',
+    backgroundColor: lighten('primary', .25),
+    backgroundImage: 'none'
+  },
+  ':disabled': {
+    color: 'disabled'
+  }
 }
 
-SiderItem.defaultProps = {
-  href: '#',
-  icon: null,
-  short: false,
-  isSelected: false,
-  isDisabled: false,
-  isCollapsed: false,
-  overrideCSS: {}
+const textOverflow = {
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden'
 }
-
-export default SiderItem

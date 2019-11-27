@@ -10,14 +10,14 @@ import { ArrowGo } from '../icon/arrow'
 const components = {
   link: ({ children, href, aCSS, isDisabled, target, ...rest }) =>
     <Link href={href}>
-      <a aCSS={aCSS} target={target}>
+      <a sx={aCSS} target={target}>
         <button disabled={isDisabled} {...rest}>
           {children}
         </button>
       </a>
     </Link>,
   href: ({ children, href, aCSS, isDisabled, target, ...rest }) =>
-    <a target={target} aCSS={aCSS} href={href}>
+    <a target={target} sx={aCSS} href={href}>
       <button disabled={isDisabled} {...rest}>
         {children}
       </button>
@@ -53,14 +53,7 @@ const Button = ({
   const Tag = components[tag || 'button']
 
   const props = {
-    aCSS: {
-      '&&': {
-        ...aCSS,
-        ...(isDisabled && {
-          // cursor: 'not-allowed'
-        })
-      }
-    },
+    aCSS: aCSS,
     icon: arrow ? <ArrowGo /> : icon,
     isDisabled: isDisabled || false,
     href: href || '#',

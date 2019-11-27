@@ -1,11 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 
-import { Box } from './index'
+import { Box } from '.'
 
 export default ({
   column,
   center,
+  centerAlign,
+  centerJustify,
   ...rest
 }) => {
   const props = {
@@ -18,7 +20,9 @@ export default ({
       sx={{
         ...{ display: 'flex' },
         ...(column && { flexDirection: 'column' }),
-        ...(center && { alignItems: 'center' }),
+        ...(centerAlign && { alignItems: 'center' }),
+        ...(centerJustify && { justifyContent: 'center' }),
+        ...(center && { alignItems: 'center', justifyContent: 'center' }),
         ...props.sx
       }}
     />

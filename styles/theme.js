@@ -19,8 +19,41 @@ export default {
     disabled: '#8E98B5',
     bright: '#FFFFFF',
     border: '#C6C9D3',
+    avatar: {
+      background: {
+        default: '#E9EDEF',
+        blue: '#E5E7FF',
+        green: '#EEF5D4',
+        orange: '#FFF3D1',
+        purple: '#F2E5FF',
+        red: '#FFEEE7',
+        tea: '#DEF4F0',
+      },
+      fill: {
+        default: '#5864FF',
+        blue: '#5864FF',
+        green: '#95BC50',
+        orange: '#F1BC24',
+        purple: '#AD6FE7',
+        red: '#F88C55',
+        tea: '#69C0B0',
+      }
+    },
+    icon: {
+      black: '#000000',
+      blue: '#5864FF',
+      default: '#696D7F',
+      disabled: '#B0B8CC',
+      green: '#2ECD52',
+      red: '#FF6C6C',
+      white: '#FFFFFF',
+      yellow: '#FFB36A',
+    },
     button: {
       background: hex2rgba('#FFFFFF', 0.25)
+    },
+    heading: {
+      h1: '#182677'
     },
     modes: {
       dark: {
@@ -55,8 +88,11 @@ export default {
   fontSizes: [
     12, 14, 16, 20, 24, 32, 48, 64
   ],
+  // space: [
+  //   0, 4, 8, 16, 32, 64, 128, 256, 512
+  // ],
   space: [
-    0, 4, 8, 16, 32, 64, 128, 256, 512
+    0, 5, 10, 20, 40, 80, 160, 320, 640
   ],
   letterSpacings: {
     body: 'normal',
@@ -66,6 +102,31 @@ export default {
   breakpoints: [
     '40em', '56em', '64em',
   ],
+
+  // variants can use custom, user-defined names
+  text: {
+    heading: {
+      ...heading
+    },
+    caps: {
+      fontWeight: 'heading',
+      textTransform: 'uppercase',
+      letterSpacing: 'caps',
+    },
+    bluesky: {
+      fontFamily: 'heading'
+    },
+    h1: {
+      ...heading,
+      color: 'heading.h1',
+      fontSize: [2, 3]
+    },
+  },
+  button: {
+    highlight: {
+      color: 'primary'
+    }
+  },
   // example heading styles
   styles: {
     root: {
@@ -126,33 +187,5 @@ export default {
       textAlign: 'left',
       borderBottomStyle: 'solid',
     },
-  },
-  // variants can use custom, user-defined names
-  text: {
-    heading: {
-      fontFamily: 'heading',
-      lineHeight: 'heading',
-      fontWeight: 'heading',
-    },
-    display: {
-      fontFamily: 'heading',
-      fontWeight: 'heading',
-      lineHeight: 'heading',
-      letterSpacing: 'heading',
-      fontSize: [5, 6, 7],
-    },
-    caps: {
-      fontWeight: 'heading',
-      textTransform: 'uppercase',
-      letterSpacing: 'caps',
-    },
-    bluesky: {
-      fontFamily: 'heading'
-    }
-  },
-  button: {
-    highlight: {
-      color: 'primary'
-    }
   },
 }

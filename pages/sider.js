@@ -1,41 +1,51 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { Flex } from '@theme-ui/components'
+import { Flex, Box, Container } from '@theme-ui/components'
 
 import { Favorite, Watch, Recent } from '../components/icon/general'
+import { Overview, List, History, Log, Alarm, Ticket, Analysis, Config, Ota } from '../components/icon/sider'
 import ThemeProviderWrapper from '../components/theme-provider-wrapper'
-import Item from '../components/sider/sider-item'
+import SiderItem from '../components/sider/sider-item'
 import BottomLink from '../components/sider/bottom-link'
+import SiderTitle from '../components/sider/sider-title'
 
 var isCollapsed = false
 
 export default () => (
   <ThemeProviderWrapper>
-    <Flex sx={{
+    <aside sx={{
+      display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between',
       alignItems: 'center',
       backgroundColor: 'bright',
-      width: isCollapsed ? 64 : 200,
-      height: '100vh',
-      pt: 40,
-      pb: 20
+      width: 200,
+      p: 1,
     }}>
-      <Flex
-        sx={{
-          flexDirection: 'column'
-        }}
-      >
-        <Item isCollapsed={isCollapsed} isSelected icon={<Favorite />}>我的收藏</Item>
-        <Item isCollapsed={isCollapsed} icon={<Watch />}>我的关注</Item>
-        <Item isCollapsed={isCollapsed} isDisabled icon={<Recent />}>最近访问</Item>
-        <Item isCollapsed={isCollapsed}>无图标标题</Item>
-      </Flex>
+      <SiderTitle more type='SmartBatteryModule'/>
+      <Container sx={{
+        position: 'relative',
+        flexGrow: 1,
+        overflow: 'auto',
+        '&::-webkit-scrollbar': {
+          // position: 'absolute',
+          display: 'none'
+        }
+      }}>
+        <SiderItem isSelected icon={<Overview />}>总览</SiderItem>
+        <SiderItem icon={<List />}>设备列表</SiderItem>
+        <SiderItem icon={<History />}>历史信息</SiderItem>
+        <SiderItem isDisabled icon={<Log />}>日志信息</SiderItem>
+        <SiderItem icon={<Alarm />}>故障信息</SiderItem>
+        <SiderItem isDisabled icon={<Ticket />}>工单管理</SiderItem>
+        <SiderItem icon={<Analysis />}>数据分析</SiderItem>
+        <SiderItem isDisabled icon={<Config />}>参数配置</SiderItem>
+        <SiderItem isDisabled icon={<Ota />}>远程升级</SiderItem>
+      </Container>
       <BottomLink isCollapsed={isCollapsed}>
-        <Item icon={<Favorite />} short>我的收藏</Item>
-        <Item onClick={() => console.log('asdasd')} icon={<Watch />} short>我的关注</Item>
-        <Item icon={<Recent />} short>我的关注</Item>
+        <SiderItem icon={<Favorite />} short>我的收藏</SiderItem>
+        <SiderItem isDisabled icon={<Watch />} short>我的关注</SiderItem>
+        <SiderItem icon={<Recent />} short>最近访问</SiderItem>
       </BottomLink>
-    </Flex>
+    </aside>
   </ThemeProviderWrapper>
 )

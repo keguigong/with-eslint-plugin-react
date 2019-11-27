@@ -1,15 +1,15 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import React from 'react'
-import { Flex } from '@theme-ui/components'
+
+import { Container } from '../common'
 
 const defaultStyles = {
-  flexDirection: 'column',
   backgroundColor: 'background',
   borderRadius: 10,
-  pt: 10,
-  pb: 10,
-  width: 180
+  py: 10,
+  px: 1,
+  my: 2
 }
 
 const BottomLink = ({
@@ -25,16 +25,14 @@ const BottomLink = ({
   return (
     <React.Fragment>
       {isCollapsed ||
-        <Flex
+        <Container
           {...props}
           sx={{
-            '&&': {
-              ...defaultStyles,
-              ...overrideCSS,
-            }
+            ...defaultStyles,
+            ...overrideCSS,
           }}>
           {children}
-        </Flex>}
+        </Container>}
     </React.Fragment>
   )
 }
