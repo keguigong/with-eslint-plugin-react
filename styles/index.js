@@ -1,5 +1,6 @@
 import { keyframes } from '@emotion/core'
 import { lighten, darken } from '@theme-ui/color'
+import hex2rgba from 'hex2rgba'
 
 export const focusStyle = {
   outline: 0,
@@ -28,7 +29,7 @@ export const buttonStyles = (arrow = false) => {
       borderWidth: 1,
       borderStyle: 'solid',
       borderColor: t => t.colors.border,
-      backgroundColor: 'button.background',
+      backgroundColor: hex2rgba('#FFFFFF', .15),
       color: 'text',
       cursor: 'pointer',
       fontFamily: 'heading',

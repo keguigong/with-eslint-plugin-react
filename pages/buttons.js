@@ -8,7 +8,7 @@ import Navigator from '../components/nav/navigator'
 const deviceTypeArr = ['全部', '换电站', '超充桩', '移动充电车', '储能站', '家充桩']
 
 export default () => (
-  <React.Fragment>
+  <Box sx={{ backgroundColor: 'background', minHeight: '100vh' }}>
     <Navigator />
     <Flex my={3}>
       {deviceTypeArr.map((item, index) => (
@@ -36,5 +36,5 @@ export default () => (
     <Button xlarge primary tag='link' icon={<PowerSwap />}></Button>
     <Button href='input' tag='link'>Go to input</Button>
     <Button secondary icon={<PowerMobile />}>Power Mobile</Button>
-  </React.Fragment>
+  </Box>
 )

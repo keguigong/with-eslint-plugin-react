@@ -4,7 +4,7 @@ import { Box } from '@theme-ui/components'
 
 import { PowerCharger, PowerHome, PowerSwap, PowerStorage, SmartBatteryModule, PowerMobile } from '../components/icon/devices'
 import { Home, ScaleExpand, Account } from '../components/icon/nav'
-import { Welkin } from '../components/icon/logo'
+import { Welkin9 } from '../components/icon/logo'
 
 import NavItem from '../components/nav/nav-item'
 
@@ -13,7 +13,7 @@ export default () => (
     <nav sx={styles.nav}>
       <NavItem
         overrideCSS={styles.logo}
-        icon={<Welkin />}
+        icon={<Welkin9 />}
         href='/'
       />
       <Box sx={styles.box}>
@@ -33,9 +33,6 @@ export default () => (
 
 const styles = {
   header: {
-    // transition: 'height eas-in .5s',
-    // flexDirection: 'column',
-    // height: '100vh',
     width: 84,
     display: 'flex',
     backgroundColor: 'bright',

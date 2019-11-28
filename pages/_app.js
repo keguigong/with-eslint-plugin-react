@@ -1,9 +1,10 @@
 /** @jsx jsx */
-import React from 'react'
 import App from 'next/app'
 import { jsx, ThemeProvider } from 'theme-ui'
+
+//import theme styles
 import theme from '../styles/theme'
-import GlobalStyles from '../styles/global'
+import ColorToggle from '../components/color-mode-toggle'
 
 class MyApp extends App {
   // Only uncomment this method if you have blocking data requirements for
@@ -21,7 +22,7 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props
     return <ThemeProvider theme={theme}>
-      <GlobalStyles />
+      <ColorToggle />
       <Component {...pageProps} />
     </ThemeProvider>
   }

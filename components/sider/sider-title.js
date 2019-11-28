@@ -21,6 +21,7 @@ export default ({
       height: 90,
       width: '100%',
       pl: 20,
+      color: 'text',
       // backgroundColor: 'bright',
       ...(props.more && { cursor: 'pointer' })
     }}>

@@ -52,8 +52,8 @@ export default {
       dark: {
         text: '#FFFFFF',
         background: '#222639',
-        primary: '#5864FF',
-        secondary: '#5D3D9D',
+        primary: '#C5BBFF',
+        secondary: '#424286',
         highlight: '#333850',
         hover: '#25295D',
         disabled: '#525796',
