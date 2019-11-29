@@ -18,6 +18,18 @@ export default {
     disabled: '#8E98B5',
     bright: '#FFFFFF',
     border: '#C6C9D3',
+    modes: {
+      dark: {
+        text: '#FFFFFF',
+        background: '#222639',
+        primary: '#C0CDFF',
+        secondary: '#424286',
+        highlight: '#333850',
+        hover: '#2F396D',
+        disabled: '#6F7AAF',
+        bright: '#1B1E2E',
+      },
+    },
     avatar: {
       background: {
         default: '#E9EDEF',
@@ -48,18 +60,6 @@ export default {
       white: '#FFFFFF',
       yellow: '#FFB36A',
     },
-    modes: {
-      dark: {
-        text: '#FFFFFF',
-        background: '#222639',
-        primary: '#C5BBFF',
-        secondary: '#424286',
-        highlight: '#333850',
-        hover: '#25295D',
-        disabled: '#525796',
-        bright: '#1B1E2E',
-      },
-    }
   },
   fonts: {
     body: '-apple-system, BlinkMacSystemFont, Pingfang SC, Segoe UI, Roboto, Helvetica, Arial, sans-serif',

@@ -17,7 +17,7 @@ export default () => (
         href='/'
       />
       <Box sx={styles.box}>
-        <NavItem icon={<Home />} href='/' />
+        <NavItem icon={<Home />} />
         <NavItem isSelected icon={<PowerSwap />} />
         <NavItem icon={<PowerMobile />} />
         <NavItem icon={<PowerStorage />} />
@@ -26,7 +26,7 @@ export default () => (
         <NavItem icon={<SmartBatteryModule />} />
       </Box>
       <NavItem href='' icon={<Account />} />
-      <NavItem icon={<ScaleExpand />} />
+      <NavItem icon={<ScaleExpand />} / >
     </nav>
   </header>
 )

@@ -5,7 +5,7 @@
 
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Main, NextScript } from 'next/document'
 import Global from '../styles/global'
 
 class MyDocument extends Document {

@@ -24,15 +24,14 @@ const BottomLink = ({
 
   return (
     <React.Fragment>
-      {isCollapsed ||
-        <Container
-          {...props}
-          sx={{
-            ...defaultStyles,
-            ...overrideCSS,
-          }}>
-          {children}
-        </Container>}
+      <Container
+        {...rest}
+        sx={{
+          ...defaultStyles,
+          ...overrideCSS,
+        }}>
+        {children}
+      </Container>
     </React.Fragment>
   )
 }

@@ -3,11 +3,12 @@ import { jsx } from 'theme-ui'
 import { Box } from '@theme-ui/components'
 
 export default ({
+  sx,
   ...rest
-}) => <Box {...rest} sx={defaultStyles} />
-
-const defaultStyles = {
-  backgroundColor: 'background', 
+}) => <Box {...rest} sx={{
+  backgroundColor: 'background',
   flex: 1,
-  overflow: 'auto'
-}
+  flexGrow: 1,
+  p: 30,
+  ...sx
+}} />

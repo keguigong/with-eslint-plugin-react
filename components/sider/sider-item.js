@@ -14,6 +14,7 @@ export default ({
   isDisabled,
   isCollapsed,
   overrideCSS,
+  reverse,
   ...rest
 }) => {
   const props = {
@@ -26,7 +27,7 @@ export default ({
     <div sx={{
       // height: 50,
       p: 1,
-      width: 'auto',
+      width: '100%',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -42,16 +43,19 @@ export default ({
           '&&': {
             ...defaultStyles,
             ...textOverflow,
+            ...(reverse && {
+              flexDirection: 'row-reverse',
+              paddingLeft: 0,
+              paddingRight: '1em',
+              ...(isCollapsed && { paddingRight: 0 })
+            }),
             ...(isSelected && {
               backgroundColor: 'highlight',
               color: 'primary',
             }),
             ...(isCollapsed && {
-              width: 54,
-              '& svg': {
-                height: 30,
-                width: 30
-              }
+              paddingLeft: 0,
+              justifyContent: 'center',
             }),
             ...overrideCSS,
           }
@@ -71,18 +75,18 @@ export default ({
 }
 
 const defaultStyles = {
+  flex: 1,
   height: 40,
   width: '100%',
   fontSize: [0, 1],
   color: 'text',
   padding: 0,
+  paddingLeft: '1em',
   border: 'none',
   backgroundColor: 'transparent',
-  flex: 1,
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
-  paddingLeft: '1em',
   ':hover:enabled, :focus:enabled': {
     color: 'text',
     backgroundColor: 'hover',

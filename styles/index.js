@@ -42,7 +42,7 @@ export const buttonStyles = (arrow = false) => {
       height: 36,
       // width: '100%',
       backgroundSize: '30px 30px',
-      transition: 'all ease-in .2s',
+      transition: 'color ease-in .2s, background-color ease-in .2s',
       '& svg': {
         ...(arrow && { marginLeft: '.35em' }),
         transition: 'transform ease-in .2s',
@@ -101,6 +101,10 @@ export const buttonStyles = (arrow = false) => {
         color: darken('bright', .15),
         ...disabledCursor
       }
+    },
+    white: {
+      backgroundColor: 'bright',
+      border: 0
     },
     small: {
       height: 30

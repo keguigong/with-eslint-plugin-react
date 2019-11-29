@@ -41,6 +41,7 @@ const Button = ({
   small,
   large,
   xlarge,
+  white,
   aCSS,
   isSelected,
   isDisabled,
@@ -53,7 +54,10 @@ const Button = ({
   const Tag = components[tag || 'button']
 
   const props = {
-    aCSS: aCSS,
+    aCSS: {
+      display: 'inline-block',
+      ...aCSS,
+    },
     icon: arrow ? <ArrowGo /> : icon,
     isDisabled: isDisabled || false,
     href: href || '#',
@@ -66,34 +70,6 @@ const Button = ({
     if (typeof props.onClick === 'function') {
       props.onClick(e)
     }
-
-    let redirect = true
-
-    // Slightly modified logic from the gatsby-plugin-google-analytics
-    // But this one should work with `Link` component as well
-    // if (
-    //   e.button !== 0 ||
-    //   e.altKey ||
-    //   e.ctrlKey ||
-    //   e.metaKey ||
-    //   e.shiftKey ||
-    //   e.defaultPrevented
-    // ) {
-    //   redirect = false
-    // }
-
-    // if (props.target && props.target.toLowerCase() !== '_self') {
-    //   redirect = false
-    // }
-
-    // if (tracking && window.ga) {
-    //   window.ga('send', 'event', {
-    //     eventCategory: 'Outbound Link',
-    //     eventAction: 'click',
-    //     eventLabel: `${tracking} - ${props.href}`,
-    //     transport: redirect ? 'beacon' : '',
-    //   })
-    // }
   }
 
   return (
@@ -108,6 +84,7 @@ const Button = ({
         ...(small && buttonStyles().small),
         ...(large && buttonStyles().large),
         ...(xlarge && buttonStyles().xlarge),
+        ...(white && buttonStyles().white),
         ...(isSelected && buttonStyles().isSelected),
         variant: variant,
         ...overrideCSS,
@@ -120,7 +97,10 @@ const Button = ({
 }
 
 Button.propTypes = {
-  href: PropTypes.string,
+  href: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object
+  ]),
   target: PropTypes.string,
   icon: PropTypes.element,
   arrow: PropTypes.bool,

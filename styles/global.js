@@ -8,7 +8,7 @@ export default props =>
       boxSizing: 'border-box'
     },
     body: {
-      margin: 0,
+      margin: 0
     },
     a: {
       textDecoration: 'none'
