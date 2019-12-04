@@ -14,6 +14,7 @@ export default props => {
     <Button
       overrideCSS={{
         position: 'fixed',
+        zIndex: 99,
         bottom: 20,
         right: 50,
         width: 44,

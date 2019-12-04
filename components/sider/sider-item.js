@@ -2,8 +2,7 @@
 import { jsx } from 'theme-ui'
 import React from 'react'
 import { Button } from '../common'
-import { lighten } from '@theme-ui/color'
-import PropTypes from 'prop-types'
+import { textOverflow } from '../../styles'
 
 export default ({
   href,
@@ -95,10 +94,4 @@ const defaultStyles = {
   ':disabled': {
     color: 'disabled'
   }
-}
-
-const textOverflow = {
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
-  overflow: 'hidden'
 }

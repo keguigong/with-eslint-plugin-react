@@ -7,6 +7,12 @@ export const focusStyle = {
   boxShadow: t => `0 0 0 2px ${t.colors.active}`,
 }
 
+export const textOverflow = {
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden'
+}
+
 const stripeAnimation = keyframes({
   '0%': { backgroundPosition: '0 0' },
   '100%': { backgroundPosition: '30px 0px' },
@@ -104,6 +110,10 @@ export const buttonStyles = (arrow = false) => {
     },
     white: {
       backgroundColor: 'bright',
+      border: 0
+    },
+    action: {
+      backgroundColor: 'transparent',
       border: 0
     },
     small: {

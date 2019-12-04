@@ -3,7 +3,9 @@ import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { Flex, Box } from '../common'
-import { Avatar, AlarmStateButton, NetworkStateButton, WorkStateButton } from '.'
+import { Avatar } from '../widget'
+import { StateButton } from '../device-list'
+import { textOverflow } from '../../styles'
 
 const Item = ({
   wide,
@@ -36,8 +38,9 @@ const Item = ({
           color: 'text',
           transition: 'all ease-in .15s',
           ':hover': {
-            color: 'primary',
+            // color: 'primary',
             cursor: 'pointer',
+            textDecoration: 'underline'
           }
         }}>
           <p sx={{
@@ -61,20 +64,15 @@ const Item = ({
         {props.state.deviceId}
       </p>
     </Box>
-    <NetworkStateButton state={props.state.networkState} />
-    <AlarmStateButton state={props.state.alarmState} />
-    <WorkStateButton state={props.state.workState} />
+    <StateButton type='network' state={props.state.networkState} />
+    <StateButton type='alarm' state={props.state.alarmState} />
+    <StateButton type='work' state={props.state.workState} />
   </Flex>
 }
 
 export default Item
 
 Item.propTypes = {
+  wide: PropTypes.bool,
   state: PropTypes.object
-}
-
-const textOverflow = {
-  textOverflow: 'ellipsis',
-  whiteSpace: 'nowrap',
-  overflow: 'hidden'
 }

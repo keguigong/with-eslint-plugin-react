@@ -103,14 +103,26 @@ export default {
       textTransform: 'uppercase',
       letterSpacing: 'caps',
     },
-    bluesky: {
-      fontFamily: 'heading'
-    },
     h1: {
       ...heading,
-      color: 'text',
+      color: 'primary',
+      my: 2,
+      fontWeight: 'bold',
       fontSize: [2, 3]
     },
+    h1_inner: {
+      ...heading,
+      color: 'primary',
+      my: 2,
+      fontWeight: 'body',
+      fontSize: [2, 3]
+    },
+    p_disabled: {
+      fontFamily: 'heading',
+      margin: 0,
+      color: 'disabled',
+      fontSize: 1
+    }
   },
   button: {
     highlight: {

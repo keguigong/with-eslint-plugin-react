@@ -1,5 +1,5 @@
-export { default as ArrowLeft } from './arrow-left'
-export { default as ArrowRight } from './arrow-right'
+export { default as ArrowCollapse } from './arrow-left'
+export { default as ArrowExpand } from './arrow-right'
 export { default as BackArrow } from './back-arrow'
 export { default as Close } from './close'
 export { default as Edit } from './edit'

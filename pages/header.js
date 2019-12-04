@@ -2,10 +2,18 @@
 import { jsx } from 'theme-ui'
 import { Box } from '@theme-ui/components'
 
-import { PowerCharger, PowerHome, PowerSwap, PowerStorage, SmartBatteryModule, PowerMobile } from '../components/icon/devices'
-import { Home, ScaleExpand, Account } from '../components/icon/nav'
-import { Welkin9 } from '../components/icon/logo'
-
+import {
+  PowerCharger,
+  PowerHome,
+  PowerSwap,
+  PowerStorage,
+  SmartBatteryModule,
+  PowerMobile,
+  Home,
+  ScaleExpand,
+  Account,
+  Welkin9
+} from '../components/icon'
 import NavItem from '../components/nav/nav-item'
 
 export default () => (
@@ -26,7 +34,7 @@ export default () => (
         <NavItem icon={<SmartBatteryModule />} />
       </Box>
       <NavItem href='' icon={<Account />} />
-      <NavItem icon={<ScaleExpand />} / >
+      <NavItem icon={<ScaleExpand />} />
     </nav>
   </header>
 )

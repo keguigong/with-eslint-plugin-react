@@ -5,8 +5,7 @@
 
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import Document, { Html, Main, NextScript } from 'next/document'
-import Global from '../styles/global'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -17,8 +16,12 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
+        <Head>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link rel="stylesheet" href="/static/font-styles.css" />
+        </Head>
         <body>
-          <Global />
           <Main />
           <NextScript />
         </body>

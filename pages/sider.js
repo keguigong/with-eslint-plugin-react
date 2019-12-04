@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import { useState, useContext } from 'react'
-import { Flex, Box, Container } from '@theme-ui/components'
+import { useContext } from 'react'
+import { Flex, Box } from '@theme-ui/components'
 
 import { Favorite, Watch, Recent } from '../components/icon/general'
 import { Overview, List, History, Log, Alarm, Ticket, Analysis, Config, Ota } from '../components/icon/sider'
-import { ArrowRight, ArrowLeft } from '../components/icon/general'
+import { ArrowCollapse, ArrowExpand } from '../components/icon/general'
 import SiderItem from '../components/sider/sider-item'
 import BottomLink from '../components/sider/bottom-link'
 import SiderTitle from '../components/sider/sider-title'
@@ -19,13 +19,13 @@ export default () => {
   return <aside sx={{
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'stretch',
     backgroundColor: 'bright',
     width: isCollapsed ? 64 : 200,
     p: 1,
   }}>
-    <SiderTitle isCollpased={isCollapsed} more type='SmartBatteryModule' />
-    <Container sx={{
+    <SiderTitle isCollpased={isCollapsed} more type='PowerSwap' />
+    <Box sx={{
       position: 'relative',
       flexGrow: 1,
       overflow: 'auto',
@@ -43,11 +43,11 @@ export default () => {
       <SiderItem isCollapsed={isCollapsed} icon={<Analysis />}>数据分析</SiderItem>
       <SiderItem isCollapsed={isCollapsed} isDisabled icon={<Config />}>参数配置</SiderItem>
       <SiderItem isCollapsed={isCollapsed} isDisabled icon={<Ota />}>远程升级</SiderItem>
-    </Container>
+    </Box>
     <SiderItem
       reverse
       isCollapsed={isCollapsed}
-      icon={!isCollapsed ? <ArrowLeft /> : <ArrowRight />}
+      icon={!isCollapsed ? <ArrowCollapse /> : <ArrowExpand />}
       onClick={() => toggleSiderCollapse()}
     />
     <BottomLink>

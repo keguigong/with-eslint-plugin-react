@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { MainContent } from '../components/widget'
 import { Button, Badge } from '../components/common'
 import { PowerMobile } from '../components/icon/devices'
+import { IconButton} from '../components/widget'
 
 export default () => {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -30,12 +31,18 @@ export default () => {
     <Button primary isDisabled>Primary</Button>
     <Button secondary>Secondary</Button>
     <Button secondary isDisabled>secondary</Button>
+    <Button white>White</Button>
+    <Button white isDisabled>White</Button>
+    <Button action>Action</Button>
+    <Button action isDisabled>Action</Button>
     <Button link>link</Button>
     <Button link isDisabled>link</Button>
     <Button isSelected>isSelected</Button>
     <Button isSelected isDisabled>isSelected</Button>
     <br />
-    <Button arrow href='input' tag='link'>Go to input</Button>
+    <IconButton/>
+    <IconButton action/>
+    <Button arrow href='input'>Go to input</Button>
     <Button secondary icon={<PowerMobile />}>Power Mobile</Button>
   </MainContent>
 
