@@ -3,7 +3,6 @@ import { jsx } from 'theme-ui'
 import { useState } from 'react'
 import { MainContent } from '../components/widget'
 import { Button, Badge } from '../components/common'
-import { PowerMobile } from '../components/icon/devices'
 import { IconButton} from '../components/widget'
 
 export default () => {
@@ -43,7 +42,7 @@ export default () => {
     <IconButton/>
     <IconButton action/>
     <Button arrow href='input'>Go to input</Button>
-    <Button secondary icon={<PowerMobile />}>Power Mobile</Button>
+    <Button secondary icon='PowerMobile'>Power Mobile</Button>
   </MainContent>
 
 }

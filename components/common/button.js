@@ -1,28 +1,27 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
-import React from 'react'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 
 import { buttonStyles } from '../../styles'
-import { ArrowGo } from '../icon/arrow'
+import { Icon } from '../icon/icon-wrapper'
 
 const components = {
-  link: ({ children, href, aCSS, isDisabled, target, ...rest }) =>
-    <Link href={href}>
-      <a sx={aCSS} target={target}>
+  link: ({ children, href, as, aCSS, isDisabled, target, ...rest }) =>
+    <Link {...{ href, as }}>
+      <a sx={aCSS} {...{ target }}>
         <button disabled={isDisabled} {...rest}>
           {children}
         </button>
       </a>
     </Link>,
-  href: ({ children, href, aCSS, isDisabled, target, ...rest }) =>
-    <a target={target} sx={aCSS} href={href}>
+  href: ({ children, href, as, aCSS, isDisabled, target, ...rest }) =>
+    <a {...{ href, target }} sx={aCSS}>
       <button disabled={isDisabled} {...rest}>
         {children}
       </button>
     </a>,
-  button: ({ children, aCSS, isDisabled, ...rest }) =>
+  button: ({ children, as, aCSS, isDisabled, ...rest }) =>
     <button disabled={isDisabled} {...rest}>
       {children}
     </button>,
@@ -30,6 +29,7 @@ const components = {
 
 const Button = ({
   href,
+  as,
   target,
   icon,
   arrow,
@@ -59,13 +59,15 @@ const Button = ({
       display: 'inline-block',
       ...aCSS,
     },
-    icon: arrow ? <ArrowGo /> : icon,
     isDisabled: isDisabled || false,
-    href: href || '#',
+    href: href,
+    as: as,
     target: target,
     onClick,
-    ...rest,
+    // ...rest,
   }
+
+  const iconName = arrow ? 'ArrowGo' : icon
 
   const trackingOnClick = e => {
     if (typeof props.onClick === 'function') {
@@ -93,7 +95,7 @@ const Button = ({
       }}
     >
       {children}
-      {props.icon && !link && <React.Fragment>{props.icon}</React.Fragment>}
+      {iconName && !link && <Icon name={iconName} />}
     </Tag>
   )
 }
@@ -103,8 +105,9 @@ Button.propTypes = {
     PropTypes.string,
     PropTypes.object
   ]),
+  as: PropTypes.string,
   target: PropTypes.string,
-  icon: PropTypes.element,
+  icon: PropTypes.string,
   arrow: PropTypes.bool,
   tag: PropTypes.string,
   primary: PropTypes.bool,
@@ -123,9 +126,10 @@ Button.propTypes = {
 }
 
 Button.defaultProps = {
-  href: '#',
+  href: '',
+  as: '',
   target: '',
-  icon: null,
+  icon: '',
   arrow: false,
   tag: '',
   primary: false,

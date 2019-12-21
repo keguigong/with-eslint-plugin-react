@@ -1,8 +1,8 @@
 const express = require('express')
 const next = require('next')
 const http = require('http')
-const https = require('https')
-const fs = require('fs')
+// const https = require('https')
+// const fs = require('fs')
 
 // var credentials = {
 //   key: fs.readFileSync('./assets/certificate/nioint.com.key'),
@@ -28,7 +28,7 @@ app
   .prepare()
   .then(() => {
     const server = express()
-    const httpServer = express()
+    // const httpServer = express()
 
     // httpServer.get("*", (req, res) => {
     //   console.log(`user came to http 😨`);

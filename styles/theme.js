@@ -1,9 +1,16 @@
-import hex2rgba from 'hex2rgba'
+// import hex2rgba from 'hex2rgba'
+import { focusStyle } from '.'
 
 const heading = {
   fontFamily: 'heading',
   lineHeight: 'heading',
   fontWeight: 'heading',
+}
+
+const body = {
+  fontFamily: 'body',
+  lineHeight: 'body',
+  fontWeight: 'body'
 }
 
 export default {
@@ -18,6 +25,8 @@ export default {
     disabled: '#8E98B5',
     bright: '#FFFFFF',
     border: '#C6C9D3',
+    title: '#182677',
+    reverse: '#FF5454',
     modes: {
       dark: {
         text: '#FFFFFF',
@@ -28,6 +37,8 @@ export default {
         hover: '#2F396D',
         disabled: '#6F7AAF',
         bright: '#1B1E2E',
+        title: '#FFFFFF',
+        reverse: '#FF5454',
       },
     },
     avatar: {
@@ -107,21 +118,32 @@ export default {
       ...heading,
       color: 'primary',
       my: 2,
-      fontWeight: 'bold',
       fontSize: [2, 3]
     },
-    h1_inner: {
-      ...heading,
-      color: 'primary',
+    h1Inline: {
+      my: 0
+    },
+    h2Title: {
       my: 2,
-      fontWeight: 'body',
-      fontSize: [2, 3]
+      mt: 3
     },
-    p_disabled: {
+    pDisabled: {
       fontFamily: 'heading',
       margin: 0,
       color: 'disabled',
       fontSize: 1
+    },
+    url: {
+      fontFamily: 'body',
+      fontSize: 1,
+      backgroundColor: 'hover',
+      borderRadius: 3,
+      color: 'text',
+      wordBreak: 'break-all',
+      textAlign: 'center',
+      px: 2,
+      py: 1,
+      maxWidth: ['90%', '75%', '50%']
     }
   },
   button: {
@@ -129,21 +151,61 @@ export default {
       color: 'primary'
     }
   },
+  forms: {
+    label: {
+      ...body,
+      fontSize: 1,
+      fontWeight: 'body',
+      color: 'text',
+      my: 1,
+      mb: 2
+    },
+    checkbox: {
+      mr: 1
+    },
+    input: {
+      fontFamily: 'heading',
+      background: 'bright',
+      borderColor: 'disabled',
+      borderRadius: 5,
+      '&:focus': {
+        // borderColor: 'primary',
+        ...focusStyle
+      },
+    },
+    select: {
+      borderColor: 'gray',
+      '&:focus': {
+        ...focusStyle
+      },
+    },
+    textarea: {
+      borderColor: 'gray',
+      '&:focus': {
+        ...focusStyle
+      },
+    },
+    slider: {
+      bg: 'muted',
+    },
+  },
   // example heading styles
   styles: {
     root: {
-      fontFamily: 'body',
-      fontWeight: 'body',
-      lineHeight: 'body',
+      ...body
     },
     h1: {
       ...heading,
-      fontSize: [4, 5, 6],
-      color: 'primary'
+      fontSize: 3,
+      color: 'title',
+      my: 2,
+      mb: 3
     },
     h2: {
       ...heading,
-      fontSize: [3, 4],
+      fontSize: 2,
+      color: 'title',
+      my: 2
     },
     h3: {
       ...heading,
@@ -162,8 +224,26 @@ export default {
       fontSize: 0,
     },
     p: {
+      ...body,
       color: 'text',
-      fontSize: [1, 2]
+      fontSize: 1,
+      my: 1
+    },
+    a: {
+      ml: '2px',
+      fontWeight: 'heading',
+      color: 'primary',
+      cursor: 'pointer',
+      '&:hover, &:focus': {
+        textDecoration: 'underline',
+      },
+      '&:focus': {
+        ...focusStyle
+      }
+    },
+    span: {
+      color: 'disabeld',
+      fontFamily: 'heading'
     },
     pre: {
       fontFamily: 'monospace',

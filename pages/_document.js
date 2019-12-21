@@ -19,7 +19,8 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link rel="stylesheet" href="/static/font-styles.css" />
+          {/* <link rel="stylesheet" href="/static/styles.css" /> */}
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab:400,700" />
         </Head>
         <body>
           <Main />

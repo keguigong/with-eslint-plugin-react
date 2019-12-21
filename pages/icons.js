@@ -13,10 +13,7 @@ import * as sider from '../components/icon/sider'
 import * as status from '../components/icon/status'
 import WelkinLototype from '../components/icon/welkin-logotype'
 
-import Navigator from '../components/nav/navigator'
-
 export default () => <Content>
-  <Navigator />
   <HeadingTitle>Lototype</HeadingTitle>
   <IconBox title='logotype' overrideCSS={{
     width: 200,

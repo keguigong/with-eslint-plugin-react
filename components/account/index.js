@@ -1,0 +1,1 @@
+export { default as AccountDetail } from './views/account-detail'

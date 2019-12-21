@@ -1,20 +1,20 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { Button } from '../common'
-import { Filter } from '../icon/general'
 
 export default ({
   white,
   height,
-  icon,
+  icon = '',
   overrideCSS,
   children,
   ...rest
 }) => {
   const props = {
-    icon: icon || <Filter />
+    icon: icon || 'Function'
   }
   return <Button
+    white
     {...rest}
     icon={props.icon}
     overrideCSS={{

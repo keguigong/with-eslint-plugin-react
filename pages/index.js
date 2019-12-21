@@ -1,34 +1,27 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import React from 'react'
-import { connect } from 'react-redux'
+import { jsx, Styled } from 'theme-ui'
 
-import { addColor, removeColor } from '../redux/actions'
+import { Flex } from '../components/common'
+import { MainContent } from '../components/widget'
+import { Header } from '../components/header'
+import { LeftSiderWrapper, SiderItem, Sider } from '../components/sider'
+import { Favorite } from '../components/favorite'
 
-class Page extends React.Component {
-  static getInitialProps({ pathname, query }) {
-    return { pathname, query }
-  }
-
-  render() {
-    return (
-      <div>
-        <ul>
-          {this.props.colors.map((item, index) => <li key={index}>
-            {item.id} {item.color} {item.timestamp}
-            <button onClick={() => this.props.dispatch(removeColor(item.id))}>x</button>
-          </li>)}
-        </ul>
-        <button onClick={() => this.props.dispatch(addColor('#00BEBE'))}>ADD COLOR</button>
-        {/* <ul>
-          {this.props.batman.map((item, index) => <li key={index}>
-            {item.name}
-          </li>)}
-        </ul>
-        <button>FETCH BATMAN</button> */}
-      </div>
-    )
-  }
+const HomePage = () => {
+  return <Flex>
+    <LeftSiderWrapper>
+      <Header route='/' />
+      <Sider bottomLink={false}>
+        <SiderItem isSelected href='/' type='favorite' />
+        <SiderItem href='/watch' type='watch' />
+        <SiderItem href='/recent' type='recent' />
+      </Sider>
+    </LeftSiderWrapper>
+    <MainContent flex>
+      <Styled.h1>我的收藏</Styled.h1>
+      <Favorite />
+    </MainContent>
+  </Flex>
 }
 
-export default connect(state => state)(Page)
+export default HomePage

@@ -1,16 +1,15 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { Flex } from '../common'
-import { PowerSwap, PowerMobile, PowerStorage, PowerCharger, PowerHome, SmartBatteryModule } from '../icon/devices'
-import { Home, Function } from '../icon/nav'
+import { Icon } from '../icon/icon-wrapper'
 
-export default ({
+const Avatar = ({
   large,
   type,
   ...rest
 }) => {
   const props = {
-    icon: iconMap[type] || <Function />,
+    icon: type,
     color: colorMap[type] || 'default',
     ...rest
   }
@@ -35,10 +34,12 @@ export default ({
       }}
       {...rest}
     >
-      {props.icon}
+      <Icon name={props.icon}/>
     </Flex >
   )
 }
+
+export default Avatar
 
 const colorMap = {
   Function: 'default',
@@ -49,15 +50,5 @@ const colorMap = {
   PowerCharger: 'red',
   PowerHome: 'orange',
   SmartBatteryModule: 'tea',
-}
-
-const iconMap = {
-  Function: Function,
-  Home: <Home />,
-  PowerSwap: <PowerSwap />,
-  PowerMobile: <PowerMobile />,
-  PowerStorage: <PowerStorage />,
-  PowerCharger: <PowerCharger />,
-  PowerHome: <PowerHome />,
-  SmartBatteryModule: <SmartBatteryModule />,
+  Account: 'default'
 }

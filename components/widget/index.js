@@ -1,4 +1,6 @@
 export { default as Avatar } from './avatar'
+export { default as EmptyState } from './empty-state'
 export { default as Footer } from './footer'
 export { default as IconButton } from './icon-button'
+export { LoadingOverlay } from './loading-overlay'
 export { default as MainContent } from './main-content'
